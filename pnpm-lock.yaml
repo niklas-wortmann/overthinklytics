@@ -30,6 +30,9 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^15.2.4
         version: 15.5.4
+      '@nx-python/nx-python':
+        specifier: 1.0.3
+        version: 1.0.3
       '@nx/devkit':
         specifier: 21.6.4
         version: 21.6.4(nx@21.6.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.17))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.5.29(@swc/helpers@0.5.17)))
@@ -1662,6 +1665,10 @@ packages:
   '@nolyfill/is-core-module@1.0.39':
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
+
+  '@nx-python/nx-python@1.0.3':
+    resolution: {integrity: sha512-j6x8SzYU4uHWePS0qpz/+xkxkgEnXFnUoyM5Hkd+NXBctkcxmsb5f6iWO7qRfvBEh1Ot21dMMUcSALLBeAArxw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   '@nx/devkit@21.6.4':
     resolution: {integrity: sha512-uMvpnMDJTT3aW4Zp+Ig1YJzvHhjpgrkt2aPEKN7v7rM9TzcEmEWqyR8RZG7QlE4QAJe2uK2F6l1Z4n/5Bnonxw==}
@@ -8726,6 +8733,8 @@ snapshots:
       fastq: 1.19.1
 
   '@nolyfill/is-core-module@1.0.39': {}
+
+  '@nx-python/nx-python@1.0.3': {}
 
   '@nx/devkit@21.6.4(nx@21.6.4(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.17))(@swc/types@0.1.25)(typescript@5.9.3))(@swc/core@1.5.29(@swc/helpers@0.5.17)))':
     dependencies:
