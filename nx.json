@@ -1,14 +1,19 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/eslint.config.mjs",
       "!{projectRoot}/src/test/**/*"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ]
   },
   "nxCloudId": "68e7e8ae3b9e4d5d3779f546",
   "plugins": [
@@ -55,7 +60,10 @@
         "testTargetName": "test",
         "classesTargetName": "classes",
         "buildTargetName": "build"
-      }
+      },
+      "exclude": [
+        "apps/kotlin-backend/gradlew"
+      ]
     }
   ],
   "generators": {
