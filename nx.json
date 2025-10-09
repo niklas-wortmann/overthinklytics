@@ -61,6 +61,12 @@
         "classesTargetName": "classes",
         "buildTargetName": "build"
       }
+    },
+    {
+      "plugin": "@nxlv/python",
+      "options": {
+        "packageManager": "uv"
+      }
     }
   ],
   "generators": {
