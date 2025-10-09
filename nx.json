@@ -60,10 +60,7 @@
         "testTargetName": "test",
         "classesTargetName": "classes",
         "buildTargetName": "build"
-      },
-      "exclude": [
-        "apps/kotlin-backend/gradlew"
-      ]
+      }
     }
   ],
   "generators": {
