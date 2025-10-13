@@ -1,4 +1,5 @@
 import './global.css';
+import ClientWidgets from './ClientWidgets';
 
 export const metadata = {
   title: 'Welcome to ',
@@ -11,8 +12,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/30 selection:text-foreground">
+        {children}
+        <ClientWidgets />
+      </body>
     </html>
   );
 }

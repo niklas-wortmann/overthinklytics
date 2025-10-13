@@ -1,3 +1,23 @@
+@import "tailwindcss";
+
+/* Tailwind v4 theme tokens: AI-ish monochrome + purple highlight */
+@theme {
+  --color-background: #0b0b0e; /* near-black */
+  --color-foreground: #ffffff; /* pure white */
+  --color-muted: #a1a1aa; /* neutral gray for secondary text */
+  --color-muted-foreground: var(--color-muted); /* shadcn-compatible naming */
+  --color-border: #1f1f24; /* subtle borders on dark bg */
+
+  /* Brand highlight */
+  --color-purple: #8b5cf6; /* fancy purple */
+  --color-primary: var(--color-purple);
+  --color-primary-foreground: #0a0a0b; /* text on purple surfaces */
+
+  /* Optional surface tokens for cards if used */
+  --color-card: color-mix(in oklab, var(--color-background) 85%, white 15%);
+  --color-card-foreground: var(--color-foreground);
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,

@@ -2,7 +2,12 @@
   "name": "@overthinklytics/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:overthinklytics": "vitest --config apps/overthinklytics/vitest.config.ts",
+    "coverage": "vitest run --coverage"
+  },
   "private": true,
   "dependencies": {
     "next": "~15.2.4",
@@ -13,6 +18,7 @@
     "@eslint/compat": "^1.1.1",
     "@eslint/eslintrc": "^2.1.1",
     "@eslint/js": "^9.8.0",
+    "@next/env": "15.5.4",
     "@next/eslint-plugin-next": "^15.2.4",
     "@nx/devkit": "21.6.4",
     "@nx/eslint": "21.6.4",
@@ -28,8 +34,14 @@
     "@swc/cli": "~0.6.0",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/coverage-v8": "^2.0.0",
     "eslint": "^9.8.0",
     "eslint-config-next": "^15.2.4",
     "eslint-config-prettier": "^10.0.0",
@@ -38,11 +50,16 @@
     "eslint-plugin-playwright": "^1.6.2",
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "5.0.0",
+    "jsdom": "^25.0.0",
     "nx": "21.6.4",
     "prettier": "^2.6.2",
+    "tailwindcss": "^4.0.0",
     "tslib": "^2.3.0",
     "typescript": "~5.9.2",
-    "typescript-eslint": "^8.40.0"
+    "typescript-eslint": "^8.40.0",
+    "vite": "^5.4.0",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^2.0.0"
   },
   "workspaces": [
     "apps/*"

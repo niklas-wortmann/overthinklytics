@@ -66,6 +66,78 @@ Nx Console is an editor extension that enriches your developer experience. It le
 
 [Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
+## Running unit tests (Vitest)
+
+This workspace uses Vitest for unit tests in the Next.js app `overthinklytics`.
+
+- Install deps: `pnpm install`
+- Run all tests for the app: `pnpm --filter @overthinklytics/overthinklytics test`
+- From the root: `pnpm test:overthinklytics`
+- Watch mode UI: `pnpm --filter @overthinklytics/overthinklytics test:ui`
+- Coverage: `pnpm --filter @overthinklytics/overthinklytics coverage`
+
+Test config lives in `apps/overthinklytics/vitest.config.ts`, with a setup file at `apps/overthinklytics/test/setup.ts`.
+
+### Environment loading (@next/env)
+
+We load `.env`, `.env.local`, and related files using `@next/env` so values are available consistently in Next (via `next.config.js`) and in tests (via `apps/overthinklytics/test/setup.ts`).
+
+- Install (already added to the workspace):
+  ```sh
+  pnpm install
+  ```
+- Next config calls `loadEnvConfig(__dirname)` to load env files from the app directory.
+- Vitest setup calls `loadEnvConfig(path.resolve(__dirname, '..'))` to load the same envs for tests.
+
+Notes:
+- Only variables prefixed with `NEXT_PUBLIC_` are exposed to the browser at runtime; others are server-only.
+- You can keep using `process.env.MY_VAR` in code; `@next/env` ensures the values are present when running locally or in tests.
+
+## Frontend: Seamless backend switching
+
+The Next.js app can connect to any of your backends (Django, Kotlin, or a third service) without code changes.
+
+There are three ways to select a backend (highest priority first):
+
+1) Explicit base URL
+
+- Set `NEXT_PUBLIC_API_BASE_URL` to an absolute URL, e.g. `http://localhost:8000`.
+- This overrides everything else.
+
+2) Named backend (mapped to URLs)
+
+- Set `NEXT_PUBLIC_BACKEND` to `django`, `kotlin`, or `third`.
+- Optionally define per-backend URLs via:
+  - `NEXT_PUBLIC_DJANGO_URL` (default `http://localhost:8000`)
+  - `NEXT_PUBLIC_KOTLIN_URL` (default `http://localhost:8080`)
+  - `NEXT_PUBLIC_THIRD_URL` (default `http://localhost:3001`)
+
+3) Runtime override (no rebuild)
+
+- URL query: append `?backend=django` (or `kotlin` / `third`).
+- Cookie/localStorage: enable the dev switcher by setting `NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1` and use the floating selector in the app UI. It persists in a cookie and `localStorage`.
+
+Quick start examples
+
+- Dev with Django backend:
+  ```sh
+  NEXT_PUBLIC_BACKEND=django npx nx dev overthinklytics
+  ```
+- Dev with explicit base URL:
+  ```sh
+  NEXT_PUBLIC_API_BASE_URL=http://localhost:8080 npx nx dev overthinklytics
+  ```
+- Show the in-app switcher (dev only):
+  ```sh
+  NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1 npx nx dev overthinklytics
+  ```
+
+ Notes
+ 
+ - The helper reads from public env vars at runtime in the browser, so use the `NEXT_PUBLIC_` prefix.
+ - In production, set only one of the variables above in your hosting environment. No code changes required to change targets.
+ - A minimal demo is available on the Dashboard page: it shows the selected backend and can ping `/health`.
+
 ## Useful links
 
 Learn more:
@@ -80,3 +152,20 @@ And join the Nx community:
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+
+### Debug information toggle (bottom-left)
+
+A small, optional debug chip can appear on the bottom-left of every page. Clicking it reveals backend connection details and quick tools.
+
+- Enable it:
+  ```sh
+  NEXT_PUBLIC_SHOW_DEBUG_TOGGLE=1 npx nx dev overthinklytics
+  ```
+- What you get:
+  - Active backend name and resolved base URL
+  - A compact `Ping /health` button to test connectivity
+  - If `NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1`, the in-app backend switcher appears inside the panel
+- Shortcuts: Press Alt+D to toggle, ESC to close.
+- Production safety: Hidden by default unless you enable `NEXT_PUBLIC_SHOW_DEBUG_TOGGLE`.
+

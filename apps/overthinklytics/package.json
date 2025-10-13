@@ -2,9 +2,16 @@
   "name": "@overthinklytics/overthinklytics",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "test": "vitest --config vitest.config.ts",
+    "test:ui": "vitest --config vitest.config.ts --ui",
+    "coverage": "vitest run --config vitest.config.ts --coverage"
+  },
   "dependencies": {
     "next": "~15.2.4",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "lucide-react": "^0.460.0",
+    "recharts": "^2.12.6"
   }
 }
