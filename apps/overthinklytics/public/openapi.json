@@ -6,7 +6,8 @@
     "description": "Single-tenant analytics endpoints that back the dashboard."
   },
   "servers": [
-    { "url": "http://localhost:3000/api", "description": "Local Next.js App Router API" }
+    { "url": "http://localhost:3000/api", "description": "Local Next.js App Router API" },
+    { "url": "http://localhost:8080/api", "description": "Local Kotlin Backend" }
   ],
   "tags": [
     { "name": "analytics", "description": "Dashboard analytics endpoints" }
