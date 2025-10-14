@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// Single-tenant analytics models to persist dashboard demo data
+model KpiSnapshot {
+  id            Int      @id @default(autoincrement())
+  capturedAt    DateTime @unique
+  totalUsers    Int
+  sessions      Int
+  conversionPct Float
+  revenueCents  Int
+}
+
+model TrafficDaily {
+  id       Int      @id @default(autoincrement())
+  date     DateTime @unique
+  visits   Int
+  sessions Int
+  @@index([date])
+}
+
+model SignupByChannel {
+  id      Int    @id @default(autoincrement())
+  year    Int
+  month   Int
+  channel String
+  signups Int
+  @@unique([year, month, channel], name: "uniq_month_channel")
+  @@index([year, month])
+}
+
+model RevenueDaily {
+  id          Int      @id @default(autoincrement())
+  date        DateTime @unique
+  valueCents  Int
+  @@index([date])
+}
+
+model DeviceShare {
+  id           Int      @id @default(autoincrement())
+  snapshotDate DateTime
+  device       String
+  sharePct     Float
+  @@unique([snapshotDate, device], name: "uniq_snapshot_device")
+  @@index([snapshotDate])
+}

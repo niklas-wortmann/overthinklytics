@@ -9,6 +9,7 @@ export type ApiResult<T> = {
 
 export async function apiFetch<T = unknown>(path: string, init?: RequestInit): Promise<ApiResult<T>> {
   try {
+    console.log({path: withBase(path), init})
     const res = await fetch(withBase(path), {
       ...init,
       headers: {
@@ -16,11 +17,10 @@ export async function apiFetch<T = unknown>(path: string, init?: RequestInit): P
         ...(init?.headers || {}),
       },
     });
-
+    console.log("I AM HERE", res)
     const contentType = res.headers.get('content-type') || '';
     const isJson = contentType.includes('application/json');
     const payload = isJson ? await res.json() : await res.text();
-
     if (!res.ok) {
       return { ok: false, status: res.status, error: typeof payload === 'string' ? payload : JSON.stringify(payload) };
     }

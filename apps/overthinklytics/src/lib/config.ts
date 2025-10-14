@@ -1,12 +1,15 @@
 // Runtime backend selection utilities for the frontend
 // Works in both browser and (limited) server environments
 
+import {}
+
 export type BackendKey = 'django' | 'kotlin' | 'third' | string;
 
 const FALLBACKS: Record<string, string> = {
   django: 'http://localhost:8000',
   kotlin: 'http://localhost:8080',
-  third: 'http://localhost:3001', // Change this if your 3rd backend uses a different port
+  // Next.js App Router API lives under /api on :3000 locally
+  third: 'http://localhost:3000/api',
 };
 
 function safeGet(name: string): string | undefined {
@@ -67,7 +70,7 @@ export function getSelectedBackend(): BackendKey {
     getLocalStorage('ol_backend') ||
     getCookie('ol_backend') ||
     safeGet('NEXT_PUBLIC_BACKEND') ||
-    'django'
+    'third'
   );
 }
 

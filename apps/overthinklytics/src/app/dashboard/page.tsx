@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import {
   LineChart,
   Line,
@@ -21,88 +22,96 @@ import {
 import { Users, MousePointerClick, DollarSign, Percent } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Trend } from '@/components/ui/trend';
+import { apiFetch } from '@/lib/apiClient';
 
-// Dummy hard-coded data for October 2025
-const traffic = [
-  { day: 'Oct 1', visits: 1240, sessions: 980 },
-  { day: 'Oct 2', visits: 1380, sessions: 1040 },
-  { day: 'Oct 3', visits: 1510, sessions: 1125 },
-  { day: 'Oct 4', visits: 1675, sessions: 1210 },
-  { day: 'Oct 5', visits: 1420, sessions: 1102 },
-  { day: 'Oct 6', visits: 1890, sessions: 1330 },
-  { day: 'Oct 7', visits: 2015, sessions: 1422 },
-  { day: 'Oct 8', visits: 1940, sessions: 1378 },
-  { day: 'Oct 9', visits: 2088, sessions: 1499 },
-  { day: 'Oct 10', visits: 2142, sessions: 1540 },
-];
-
-const signupsByChannel = [
-  { channel: 'Organic', signups: 540 },
-  { channel: 'Paid', signups: 320 },
-  { channel: 'Referral', signups: 210 },
-  { channel: 'Social', signups: 160 },
-];
-
-const revenue = [
-  { day: 'Oct 1', value: 1400 },
-  { day: 'Oct 3', value: 1800 },
-  { day: 'Oct 5', value: 1650 },
-  { day: 'Oct 7', value: 2200 },
-  { day: 'Oct 9', value: 2450 },
-];
-
-const deviceShare = [
-  { name: 'Desktop', value: 62 },
-  { name: 'Mobile', value: 30 },
-  { name: 'Tablet', value: 8 },
-];
 
 const purple = '#8b5cf6';
 const purpleAlt = '#a78bfa';
 const grid = '#1f1f24';
 
 export default function DashboardPage() {
-  // KPIs (hard-coded)
-  const kpis = [
-    {
-      icon: <Users className="text-primary" size={18} />,
-      label: 'Total Users',
-      value: '24,310',
-      delta: 5.4,
-    },
-    {
-      icon: <MousePointerClick className="text-primary" size={18} />,
-      label: 'Sessions',
-      value: '15,125',
-      delta: 3.1,
-    },
-    {
-      icon: <Percent className="text-primary" size={18} />,
-      label: 'Conversion',
-      value: '3.9%',
-      delta: -0.4,
-    },
-    {
-      icon: <DollarSign className="text-primary" size={18} />,
-      label: 'Revenue',
-      value: '$12.4k',
-      delta: 8.2,
-    },
-  ];
+  type Kpi = { label: string; value: string; delta: number };
+  type TrafficPoint = { day: string; visits: number; sessions: number };
+  type SignupPoint = { channel: string; signups: number };
+  type RevenuePoint = { day: string; value: number };
+  type DevicePoint = { name: string; value: number };
+
+  const [kpis, setKpis] = useState<Kpi[]>([]);
+  const [trafficData, setTrafficData] = useState<TrafficPoint[]>([]);
+  const [signupsData, setSignupsData] = useState<SignupPoint[]>([]);
+  const [revenueData, setRevenueData] = useState<RevenuePoint[]>([]);
+  const [deviceShareData, setDeviceShareData] = useState<DevicePoint[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  function iconFor(label: string) {
+    switch (label) {
+      case 'Total Users':
+        return <Users className="text-primary" size={18} />;
+      case 'Sessions':
+        return <MousePointerClick className="text-primary" size={18} />;
+      case 'Conversion':
+        return <Percent className="text-primary" size={18} />;
+      case 'Revenue':
+        return <DollarSign className="text-primary" size={18} />;
+      default:
+        return null;
+    }
+  }
+
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        const [kpiRes, trafficRes, signupRes, revenueRes, deviceRes] = await Promise.all([
+          apiFetch<{ kpis: Kpi[] }>('/analytics/kpis'),
+          apiFetch<{ data: TrafficPoint[] }>(`/analytics/traffic?limit=10`),
+          apiFetch<{ data: SignupPoint[] }>(`/analytics/signups`),
+          apiFetch<{ data: RevenuePoint[] }>(`/analytics/revenue?limit=10`),
+          apiFetch<{ data: DevicePoint[] }>(`/analytics/device-share`),
+        ]);
+        if (cancelled) return;
+        if (kpiRes.ok && kpiRes.data) setKpis(kpiRes.data.kpis);
+        if (trafficRes.ok && trafficRes.data) setTrafficData(trafficRes.data.data);
+        if (signupRes.ok && signupRes.data) setSignupsData(signupRes.data.data);
+        if (revenueRes.ok && revenueRes.data) setRevenueData(revenueRes.data.data);
+        if (deviceRes.ok && deviceRes.data) setDeviceShareData(deviceRes.data.data);
+        if (!kpiRes.ok || !trafficRes.ok || !signupRes.ok || !revenueRes.ok || !deviceRes.ok) {
+          setError(
+            [kpiRes, trafficRes, signupRes, revenueRes, deviceRes].find((r) => !r.ok)?.error || 'Failed to load some data'
+          );
+        }
+      } catch (e: any) {
+        if (!cancelled) setError(e?.message || 'Unexpected error');
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-8">
       <div className="mb-6">
         <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Analytics Overview</h1>
-        <p className="text-muted mt-1">Dummy data for visualization — replace with real metrics later.</p>
+        <p className="text-muted mt-1">Live data loaded from the database via API.</p>
       </div>
-      {/* KPI cards */}
+      {error && (
+              <div className="mb-4 text-sm text-red-400">{error}</div>
+            )}
+            {loading && !error && (
+              <div className="mb-4 text-sm text-zinc-400">Loading analytics...</div>
+            )}
+            {/* KPI cards */}
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6">
         {kpis.map((k) => (
           <Card key={k.label}>
             <CardHeader className="flex items-center justify-between">
               <CardTitle className="flex items-center gap-2">
-                {k.icon}
+                {iconFor(k.label)}
                 {k.label}
               </CardTitle>
               <Trend value={k.delta} label={`${k.label} trend`} />
@@ -124,7 +133,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent className="h-64">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={traffic} margin={{ left: 8, right: 8, top: 10, bottom: 0 }}>
+              <LineChart data={trafficData} margin={{ left: 8, right: 8, top: 10, bottom: 0 }}>
                 <CartesianGrid stroke={grid} strokeDasharray="3 3" />
                 <XAxis dataKey="day" stroke="#888" tick={{ fill: '#a1a1aa', fontSize: 12 }} />
                 <YAxis stroke="#888" tick={{ fill: '#a1a1aa', fontSize: 12 }} />
@@ -147,7 +156,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent className="h-64">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={signupsByChannel} margin={{ left: 8, right: 8, top: 10, bottom: 0 }}>
+              <BarChart data={signupsData} margin={{ left: 8, right: 8, top: 10, bottom: 0 }}>
                 <CartesianGrid stroke={grid} strokeDasharray="3 3" />
                 <XAxis dataKey="channel" stroke="#888" tick={{ fill: '#a1a1aa', fontSize: 12 }} />
                 <YAxis stroke="#888" tick={{ fill: '#a1a1aa', fontSize: 12 }} />
@@ -166,7 +175,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent className="h-64">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={revenue} margin={{ left: 8, right: 8, top: 10, bottom: 0 }}>
+              <AreaChart data={revenueData} margin={{ left: 8, right: 8, top: 10, bottom: 0 }}>
                 <defs>
                   <linearGradient id="rev" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor={purple} stopOpacity={0.7} />
@@ -192,8 +201,8 @@ export default function DashboardPage() {
           <CardContent className="h-64">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
-                <Pie data={deviceShare} dataKey="value" nameKey="name" innerRadius={48} outerRadius={80}>
-                  {deviceShare.map((_, i) => (
+                <Pie data={deviceShareData} dataKey="value" nameKey="name" innerRadius={48} outerRadius={80}>
+                  {deviceShareData.map((_, i) => (
                     <Cell key={i} fill={i === 0 ? purple : i === 1 ? purpleAlt : '#6b7280'} />
                   ))}
                 </Pie>

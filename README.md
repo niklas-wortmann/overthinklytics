@@ -169,3 +169,33 @@ A small, optional debug chip can appear on the bottom-left of every page. Clicki
 - Shortcuts: Press Alt+D to toggle, ESC to close.
 - Production safety: Hidden by default unless you enable `NEXT_PUBLIC_SHOW_DEBUG_TOGGLE`.
 
+
+
+## Prisma setup for demo data
+
+The project includes a Prisma schema at `prisma/schema.prisma` used by the Next.js API routes under `apps/overthinklytics/src/app/api`.
+
+Quick start:
+
+- Ensure a Postgres database and set `DATABASE_URL` in `apps/overthinklytics/.env.local` or project root `.env`.
+- Install deps:
+  ```sh
+  pnpm install
+  ```
+- Generate the client:
+  ```sh
+  pnpm prisma:generate
+  ```
+- Create and apply migrations locally:
+  ```sh
+  pnpm prisma:migrate
+  ```
+- Seed demo data (tenants, a demo user with id `11111111-1111-1111-1111-111111111111`, memberships, and insights):
+  ```sh
+  pnpm db:seed
+  ```
+
+Notes:
+- The monorepo points Prisma to `prisma/schema.prisma` via the `"prisma.schema"` field in the root `package.json`, so commands work from the repo root.
+- API routes expect the `X-Demo-User-Id` header to match the seeded user id when using the demo pages.
+- Once seeded, open `http://localhost:3000/demo-insights` while running `npx nx dev overthinklytics`.

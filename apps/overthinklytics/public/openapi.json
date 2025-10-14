@@ -1,0 +1,277 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Overthinklytics Analytics API",
+    "version": "1.0.0",
+    "description": "Single-tenant analytics endpoints that back the dashboard."
+  },
+  "servers": [
+    { "url": "http://localhost:3000/api", "description": "Local Next.js App Router API" }
+  ],
+  "tags": [
+    { "name": "analytics", "description": "Dashboard analytics endpoints" }
+  ],
+  "paths": {
+    "/analytics/kpis": {
+      "get": {
+        "tags": ["analytics"],
+        "summary": "Get latest KPI snapshot formatted for display",
+        "operationId": "getKpis",
+        "responses": {
+          "200": {
+            "description": "Latest KPI cards",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/KpiResponse" },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "kpis": [
+                        { "label": "Total Users", "value": "24,310", "delta": 2.1 },
+                        { "label": "Sessions", "value": "15,125", "delta": 1.4 },
+                        { "label": "Conversion", "value": "3.9%", "delta": 0.3 },
+                        { "label": "Revenue", "value": "$12.4k", "delta": 4.2 }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/analytics/traffic": {
+      "get": {
+        "tags": ["analytics"],
+        "summary": "Get recent traffic series (visits and sessions)",
+        "operationId": "getTraffic",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Max number of recent days to return",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 60, "default": 10 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Traffic time series",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TrafficResponse" },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "data": [
+                        { "day": "2025-10-01", "visits": 1240, "sessions": 980 },
+                        { "day": "2025-10-02", "visits": 1380, "sessions": 1040 }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/analytics/signups": {
+      "get": {
+        "tags": ["analytics"],
+        "summary": "Get signups by channel for the latest month",
+        "operationId": "getSignupsByChannel",
+        "responses": {
+          "200": {
+            "description": "Current month signups by acquisition channel",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SignupResponse" },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "data": [
+                        { "channel": "Organic", "signups": 540 },
+                        { "channel": "Paid", "signups": 320 },
+                        { "channel": "Referral", "signups": 210 },
+                        { "channel": "Social", "signups": 160 }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/analytics/revenue": {
+      "get": {
+        "tags": ["analytics"],
+        "summary": "Get recent revenue time series (in dollars)",
+        "operationId": "getRevenue",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Max number of recent days to return",
+            "required": false,
+            "schema": { "type": "integer", "minimum": 1, "maximum": 60, "default": 10 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Revenue time series",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/RevenueResponse" },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "data": [
+                        { "day": "2025-10-01", "value": 1400 },
+                        { "day": "2025-10-03", "value": 1800 }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/analytics/device-share": {
+      "get": {
+        "tags": ["analytics"],
+        "summary": "Get latest device share snapshot",
+        "operationId": "getDeviceShare",
+        "responses": {
+          "200": {
+            "description": "Device distribution by percent",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DeviceShareResponse" },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "data": [
+                        { "name": "Desktop", "value": 62 },
+                        { "name": "Mobile", "value": 30 },
+                        { "name": "Tablet", "value": 8 }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Kpi": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string", "description": "Display label of the KPI card" },
+          "value": { "type": "string", "description": "Formatted value (e.g., 24,310 or $12.4k)" },
+          "delta": { "type": "number", "format": "float", "description": "Trend percentage (positive or negative)" }
+        },
+        "required": ["label", "value", "delta"]
+      },
+      "KpiResponse": {
+        "type": "object",
+        "properties": {
+          "kpis": { "type": "array", "items": { "$ref": "#/components/schemas/Kpi" } }
+        },
+        "required": ["kpis"]
+      },
+      "TrafficPoint": {
+        "type": "object",
+        "properties": {
+          "day": { "type": "string", "format": "date", "description": "ISO date (YYYY-MM-DD)" },
+          "visits": { "type": "integer" },
+          "sessions": { "type": "integer" }
+        },
+        "required": ["day", "visits", "sessions"]
+      },
+      "TrafficResponse": {
+        "type": "object",
+        "properties": {
+          "data": { "type": "array", "items": { "$ref": "#/components/schemas/TrafficPoint" } }
+        },
+        "required": ["data"]
+      },
+      "SignupPoint": {
+        "type": "object",
+        "properties": {
+          "channel": { "type": "string" },
+          "signups": { "type": "integer" }
+        },
+        "required": ["channel", "signups"]
+      },
+      "SignupResponse": {
+        "type": "object",
+        "properties": {
+          "data": { "type": "array", "items": { "$ref": "#/components/schemas/SignupPoint" } }
+        },
+        "required": ["data"]
+      },
+      "RevenuePoint": {
+        "type": "object",
+        "properties": {
+          "day": { "type": "string", "format": "date" },
+          "value": { "type": "number" }
+        },
+        "required": ["day", "value"]
+      },
+      "RevenueResponse": {
+        "type": "object",
+        "properties": {
+          "data": { "type": "array", "items": { "$ref": "#/components/schemas/RevenuePoint" } }
+        },
+        "required": ["data"]
+      },
+      "DeviceSharePoint": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "Device type label (e.g., Desktop)" },
+          "value": { "type": "number", "description": "Percent share (0-100)" }
+        },
+        "required": ["name", "value"]
+      },
+      "DeviceShareResponse": {
+        "type": "object",
+        "properties": {
+          "data": { "type": "array", "items": { "$ref": "#/components/schemas/DeviceSharePoint" } }
+        },
+        "required": ["data"]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        },
+        "required": ["error"]
+      }
+    },
+    "responses": {
+      "Error": {
+        "description": "Error response",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" }
+          }
+        }
+      }
+    }
+  }
+}
