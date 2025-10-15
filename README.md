@@ -204,21 +204,18 @@ Notes:
 
 Requires `uv` be installed via [global one-liner](https://docs.astral.sh/uv/getting-started/installation/).
 
-Note:
+### Quick start:
 
-I needed to use full project name `@overthinklytics/overthinklytics` because just using `overthinklytics` was the root Gradle project. 
-
- - Start dev server: `npx nx dev @overthinklytics/overthinklytics`
-
-Quick start:
-
-- Switch to Django repo: `cd apps/django-backend`
+- Start dev server: `npx nx dev @overthinklytics/overthinklytics`
+- In a new Terminal window, switch to Django repo: `cd apps/django-backend`
 - Migrate the local SQLite database: `uv run manage.py migrate`
-- Run local server: `uv run manage.py runserver`
+- Run the local server: `uv run manage.py runserver`
 
+Go to `http://localhost:3000/dashboard?backend=django` to see the demo data.
 
+-----
 
-## Potential Wording Changes...
+<!-- Optional wording changes for overall Readme -->
 
 # Overthinklytics - Multi-Backend Analytics Dashboard
 
@@ -256,47 +253,7 @@ The magic is in the runtime configuration system (apps/overthinklytics/src/lib/c
 3. Per-backend URLs: NEXT_PUBLIC_KOTLIN_URL=http://localhost:8080
 4. Direct base URL: NEXT_PUBLIC_API_BASE_URL=http://api.example.com
 
-Example commands:
-# Django backend
-NEXT_PUBLIC_BACKEND=django npx nx dev @overthinklytics/overthinklytics
-
-# Kotlin backend with switcher UI
-NEXT_PUBLIC_BACKEND=kotlin NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1 npx nx dev @overthinklytics/overthinklytics
-
-# Custom backend URL
-NEXT_PUBLIC_API_BASE_URL=http://staging.api.com npx nx dev @overthinklytics/overthinklytics
-
-Backend Implementations
-
-1. Kotlin/Spring Boot (apps/kotlin-backend/)
-
-Status: ✅ Fully implemented
-
-- Spring Boot 3.5.6, Kotlin 1.9.25, Java 21
-- SQLite database with JDBC
-- Complete REST API with all analytics endpoints
-- Repositories: KpiRepository, TrafficRepository, RevenueRepository, SignupRepository, DeviceShareRepository
-- Service layer with business logic and formatting
-- Run: cd apps/kotlin-backend && ./gradlew bootRun
-
-2. Django (apps/django-backend/)
-
-Status: ⚠️ Minimal setup (ready for implementation)
-
-- Django 5.2, Python 3.13
-- SQLite database
-- Basic structure, no analytics endpoints yet
-- Run: cd apps/django-backend && uv run manage.py runserver
-
-3. Next.js API Routes (apps/overthinklytics/src/app/api/analytics/)
-
-Status: ✅ Fully implemented
-
-- Native Next.js API routes
-- Can use Prisma ORM or direct queries
-- Runs alongside the frontend on port 3000
-
-API Endpoints
+### API Endpoints
 
 All backends expose the same contract:
 
