@@ -199,3 +199,13 @@ Notes:
 - The monorepo points Prisma to `prisma/schema.prisma` via the `"prisma.schema"` field in the root `package.json`, so commands work from the repo root.
 - API routes expect the `X-Demo-User-Id` header to match the seeded user id when using the demo pages.
 - Once seeded, open `http://localhost:3000/demo-insights` while running `npx nx dev overthinklytics`.
+
+## Django setup for demo data
+
+In progress commands:
+
+Quick start:
+
+- Switch to Django repo: `cd apps/django-backend`
+- Migrate the local SQLite database: `uv run manage.py migrate`
+- Run local server: `uv run manage.py runserver`
