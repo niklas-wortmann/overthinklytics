@@ -202,6 +202,8 @@ Notes:
 
 ## Django setup for demo data
 
+Requires `uv` be installed via [global one-liner](https://docs.astral.sh/uv/getting-started/installation/).
+
 Note:
 
 I needed to use full project name `@overthinklytics/overthinklytics` because just using `overthinklytics` was the root Gradle project. 

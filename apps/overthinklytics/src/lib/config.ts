@@ -1,8 +1,6 @@
 // Runtime backend selection utilities for the frontend
 // Works in both browser and (limited) server environments
 
-import {}
-
 export type BackendKey = 'django' | 'kotlin' | 'third' | string;
 
 const FALLBACKS: Record<string, string> = {
