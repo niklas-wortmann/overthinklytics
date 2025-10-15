@@ -202,10 +202,108 @@ Notes:
 
 ## Django setup for demo data
 
-In progress commands:
+Note:
+
+I needed to use full project name `@overthinklytics/overthinklytics` because just using `overthinklytics` was the root Gradle project. 
+
+ - Start dev server: `npx nx dev @overthinklytics/overthinklytics`
 
 Quick start:
 
 - Switch to Django repo: `cd apps/django-backend`
 - Migrate the local SQLite database: `uv run manage.py migrate`
 - Run local server: `uv run manage.py runserver`
+
+
+
+## Potential Wording Changes...
+
+# Overthinklytics - Multi-Backend Analytics Dashboard
+
+Overthinklytics is a demonstration project showcasing how to build a backend-agnostic analytics dashboard that can seamlessly switch between multiple backend implementations at runtime without code changes.
+
+## Core Concept
+
+The project demonstrates polyglot architecture - a single Next.js frontend that can connect to any of three different backends:
+
+1. Django (Python) - Port 8000
+2. Kotlin/Spring Boot - Port 8080
+3. Next.js API Routes ("Third") - Port 3000
+
+You can switch backends via environment variables, URL parameters, or a floating UI switcher - no rebuild required.
+
+## What It Does
+
+### Analytics Dashboard (/dashboard)
+
+A professional analytics overview displaying:
+
+- 4 KPI Cards: Total Users (24.3k), Sessions (15.1k), Conversion Rate (3.9%), Revenue ($12.4k)
+- Traffic Chart: Line chart showing visits vs sessions over 10 days
+- Signups by Channel: Bar chart breaking down Organic, Paid, Referral, Social
+- Revenue Trend: Area chart showing daily revenue over 10 days
+- Device Share: Pie chart - Desktop (62%), Mobile (30%), Tablet (8%)
+
+### Backend Flexibility
+#
+The magic is in the runtime configuration system (apps/overthinklytics/src/lib/config.ts):
+
+4-tier priority for backend selection:
+1. URL query param: ?backend=django (highest priority)
+2. Environment variable: NEXT_PUBLIC_BACKEND=kotlin
+3. Per-backend URLs: NEXT_PUBLIC_KOTLIN_URL=http://localhost:8080
+4. Direct base URL: NEXT_PUBLIC_API_BASE_URL=http://api.example.com
+
+Example commands:
+# Django backend
+NEXT_PUBLIC_BACKEND=django npx nx dev @overthinklytics/overthinklytics
+
+# Kotlin backend with switcher UI
+NEXT_PUBLIC_BACKEND=kotlin NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1 npx nx dev @overthinklytics/overthinklytics
+
+# Custom backend URL
+NEXT_PUBLIC_API_BASE_URL=http://staging.api.com npx nx dev @overthinklytics/overthinklytics
+
+Backend Implementations
+
+1. Kotlin/Spring Boot (apps/kotlin-backend/)
+
+Status: ✅ Fully implemented
+
+- Spring Boot 3.5.6, Kotlin 1.9.25, Java 21
+- SQLite database with JDBC
+- Complete REST API with all analytics endpoints
+- Repositories: KpiRepository, TrafficRepository, RevenueRepository, SignupRepository, DeviceShareRepository
+- Service layer with business logic and formatting
+- Run: cd apps/kotlin-backend && ./gradlew bootRun
+
+2. Django (apps/django-backend/)
+
+Status: ⚠️ Minimal setup (ready for implementation)
+
+- Django 5.2, Python 3.13
+- SQLite database
+- Basic structure, no analytics endpoints yet
+- Run: cd apps/django-backend && uv run manage.py runserver
+
+3. Next.js API Routes (apps/overthinklytics/src/app/api/analytics/)
+
+Status: ✅ Fully implemented
+
+- Native Next.js API routes
+- Can use Prisma ORM or direct queries
+- Runs alongside the frontend on port 3000
+
+API Endpoints
+
+All backends expose the same contract:
+
+| Endpoint                        | Response                            |
+|---------------------------------|-------------------------------------|
+| GET /analytics/kpis             | Latest KPI snapshot                 |
+| GET /analytics/traffic?limit=10 | Daily traffic data                  |
+| GET /analytics/signups          | Monthly signup breakdown by channel |
+| GET /analytics/revenue?limit=10 | Daily revenue data                  |
+| GET /analytics/device-share     | Device distribution snapshot        |
+| GET /health                     | Health check                        |
+
