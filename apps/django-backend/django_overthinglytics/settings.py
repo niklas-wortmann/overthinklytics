@@ -87,6 +87,9 @@ DATABASES = {
     'analytics': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR.parent.parent / 'prisma' / 'dev.db',  # Shared Prisma database
+        'OPTIONS': {
+            'init_command': 'PRAGMA foreign_keys=OFF;',
+        },
     }
 }
 
