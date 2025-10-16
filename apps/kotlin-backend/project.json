@@ -7,7 +7,7 @@
   "tags": ["backend", "kotlin", "spring"],
   "targets": {
     "test": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "cwd": "{workspaceRoot}",
         "command": "./gradlew :apps:kotlin-backend:test"
@@ -21,21 +21,21 @@
       }
     },
     "build": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "cwd": "{workspaceRoot}",
         "command": "./gradlew :apps:kotlin-backend:build"
       }
     },
     "classes": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "cwd": "{workspaceRoot}",
         "command": "./gradlew :apps:kotlin-backend:classes"
       }
     },
     "test-all": {
-      "executor": "@nx/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "cwd": "{workspaceRoot}",
         "command": "./gradlew test"

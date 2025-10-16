@@ -43,10 +43,5 @@
       "cache": true
     }
   },
-  "tags": [],
-  "release": {
-    "version": {
-      "generator": "@nxlv/python:release-version"
-    }
-  }
+  "tags": []
 }
