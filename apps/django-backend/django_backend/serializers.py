@@ -46,9 +46,9 @@ class TrafficPointSerializer(serializers.Serializer):
     sessions = serializers.IntegerField()
 
     def get_day(self, obj):
-        """Format datetime as ISO date string."""
+        """Format datetime as 'Jan 5' format to match Next.js backend."""
         dt = obj.date_datetime
-        return dt.strftime("%Y-%m-%d") if dt else None
+        return dt.strftime("%b %-d") if dt else None
 
 
 class TrafficResponseSerializer(serializers.Serializer):
@@ -77,13 +77,13 @@ class RevenuePointSerializer(serializers.Serializer):
     value = serializers.SerializerMethodField()
 
     def get_day(self, obj):
-        """Format datetime as ISO date string."""
+        """Format datetime as 'Jan 5' format to match Next.js backend."""
         dt = obj.date_datetime
-        return dt.strftime("%Y-%m-%d") if dt else None
+        return dt.strftime("%b %-d") if dt else None
 
     def get_value(self, obj):
-        """Convert cents to dollars (float)."""
-        return obj.valuecents / 100.0
+        """Convert cents to dollars (rounded integer to match Next.js)."""
+        return round(obj.valuecents / 100)
 
 
 class RevenueResponseSerializer(serializers.Serializer):
