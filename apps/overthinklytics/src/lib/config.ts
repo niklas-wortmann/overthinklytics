@@ -16,7 +16,9 @@ function safeGet(name: string): string | undefined {
     // On the server, process.env is available
     const v = (process as any)?.env?.[name];
     if (typeof v === 'string' && v.length > 0) return v;
-  } catch {}
+  } catch {
+    // Silently fail if process.env is not available
+  }
   return undefined;
 }
 
@@ -29,7 +31,7 @@ function getQueryParam(name: string): string | undefined {
 
 function getCookie(name: string): string | undefined {
   if (typeof document === 'undefined') return undefined;
-  const m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
+  const m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)'));
   return m ? decodeURIComponent(m[1]) : undefined;
 }
 
@@ -48,7 +50,9 @@ export function setBackendOverride(backend: BackendKey) {
     document.cookie = `ol_backend=${encodeURIComponent(backend)}; path=/; max-age=${60 * 60 * 24 * 365}`;
   }
   if (typeof window !== 'undefined') {
-    try { window.localStorage.setItem('ol_backend', backend); } catch {}
+    try { window.localStorage.setItem('ol_backend', backend); } catch {
+      // Silently fail if localStorage is not available
+    }
   }
 }
 
@@ -57,7 +61,9 @@ export function clearBackendOverride() {
     document.cookie = 'ol_backend=; path=/; Max-Age=0';
   }
   if (typeof window !== 'undefined') {
-    try { window.localStorage.removeItem('ol_backend'); } catch {}
+    try { window.localStorage.removeItem('ol_backend'); } catch {
+      // Silently fail if localStorage is not available
+    }
   }
 }
 
