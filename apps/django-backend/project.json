@@ -38,7 +38,7 @@
       "cache": true
     },
     "serve": {
-      "executor": "@nxlv/python:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "uv run manage.py runserver",
         "cwd": "{projectRoot}"
@@ -62,13 +62,13 @@
       "cache": true
     },
     "test": {
-      "executor": "@nxlv/python:run-commands",
+      "executor": "nx:run-commands",
       "outputs": [
         "{workspaceRoot}/reports/{projectRoot}/unittests",
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "command": "uv run pytest tests/",
+        "command": "uv run python manage.py test",
         "cwd": "{projectRoot}"
       },
       "cache": true

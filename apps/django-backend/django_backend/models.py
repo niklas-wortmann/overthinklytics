@@ -7,7 +7,6 @@ They are read-only (managed=False) since Prisma manages the schema.
 from datetime import datetime
 
 from django.db import models
-from django.db.models import F
 from django.db.models.functions import Cast
 
 
@@ -15,7 +14,7 @@ class KpiSnapshotManager(models.Manager):
     """Custom manager for KPI snapshots."""
 
     def get_queryset(self):
-        """Override to cast capturedat field to BigInteger (Django SQLite datetime issue)."""
+        """Override to cast capturedat field to BigInteger."""
         return super().get_queryset().annotate(
             capturedat_int=Cast("capturedat", models.BigIntegerField())
         )
@@ -149,7 +148,7 @@ class DeviceShareManager(models.Manager):
     """Custom manager for device share data."""
 
     def get_queryset(self):
-        """Override to cast snapshotdate field to BigInteger (Django SQLite datetime issue)."""
+        """Override to cast snapshotdate field to BigInteger."""
         return super().get_queryset().annotate(
             snapshotdate_int=Cast("snapshotdate", models.BigIntegerField())
         )
@@ -159,7 +158,9 @@ class DeviceShareManager(models.Manager):
         latest = self.order_by("-snapshotdate_int").values("snapshotdate_int").first()
         if not latest:
             return self.none()
-        return self.filter(snapshotdate_int=latest["snapshotdate_int"]).order_by("device")
+        return self.filter(
+            snapshotdate_int=latest["snapshotdate_int"]
+        ).order_by("device")
 
 
 class DeviceShare(models.Model):

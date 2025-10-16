@@ -116,8 +116,9 @@ class BaseTestCase(TestCase):
         # Signup data (two months)
         channels = ["organic", "paid", "referral", "social"]
         for channel in channels:
+            signups = 100 * (ord(channel[0]) % 10)
             SignupByChannel.objects.create(
-                year=2024, month=1, channel=channel, signups=100 * (ord(channel[0]) % 10)
+                year=2024, month=1, channel=channel, signups=signups
             )
             SignupByChannel.objects.create(
                 year=2023, month=12, channel=channel, signups=50

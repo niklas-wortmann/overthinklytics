@@ -25,6 +25,23 @@ jobs:
       # Uncomment this line to enable task distribution
       # - run: npx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
 
+      # Setup Java for Kotlin backend
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      # Setup Python for Django backend
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      # Install uv for Django backend
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
       # Setup pnpm
       - uses: pnpm/action-setup@v3
         with:
@@ -37,7 +54,16 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
+
+      # Generate Prisma Client
+      - run: pnpm prisma:generate
+
       - run: npx playwright install --with-deps
+
+      # Install Python dependencies for Django backend
+      - name: Install Django dependencies
+        run: uv sync
+        working-directory: apps/django-backend
 
       # Prepend any command with "nx-cloud record --" to record its logs to Nx Cloud
       # - run: npx nx-cloud record -- echo Hello World
