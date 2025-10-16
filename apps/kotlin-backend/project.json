@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json.schemastore.org/nx-project.json",
+  "name": "kotlin-backend",
+  "root": "apps/kotlin-backend",
+  "sourceRoot": "apps/kotlin-backend/src",
+  "projectType": "application",
+  "tags": ["backend", "kotlin", "spring"],
+  "targets": {
+    "test": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "cwd": "{workspaceRoot}",
+        "command": "./gradlew :apps:kotlin-backend:test"
+      },
+      "configurations": {
+        "filtered": {
+          "options": {
+            "args": "-Ptests={args.pattern}"
+          }
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "cwd": "{workspaceRoot}",
+        "command": "./gradlew :apps:kotlin-backend:build"
+      }
+    },
+    "classes": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "cwd": "{workspaceRoot}",
+        "command": "./gradlew :apps:kotlin-backend:classes"
+      }
+    },
+    "test-all": {
+      "executor": "@nx/workspace:run-commands",
+      "options": {
+        "cwd": "{workspaceRoot}",
+        "command": "./gradlew test"
+      }
+    }
+  }
+}
