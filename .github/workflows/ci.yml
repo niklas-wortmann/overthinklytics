@@ -55,6 +55,9 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # Clear Nx cache to avoid stale executor references
+      - run: npx nx reset
+
       # Generate Prisma Client
       - run: pnpm prisma:generate
 
