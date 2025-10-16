@@ -200,69 +200,19 @@ Notes:
 - API routes expect the `X-Demo-User-Id` header to match the seeded user id when using the demo pages.
 - Once seeded, open `http://localhost:3000/demo-insights` while running `npx nx dev overthinklytics`.
 
-## Django setup for demo data
+## Django Configuration
 
 Requires `uv` be installed via [global one-liner](https://docs.astral.sh/uv/getting-started/installation/).
 
 ### Quick start:
 
-- Start dev server: `npx nx dev @overthinklytics/overthinklytics`
-- In a new Terminal window, switch to Django repo: `cd apps/django-backend`
-- Migrate the local SQLite database: `uv run manage.py migrate`
-- Run the local server: `uv run manage.py runserver`
+1. Start the frontend dev server: `npx nx dev @overthinklytics/overthinklytics`
 
-Go to `http://localhost:3000/dashboard?backend=django` to see the demo data.
+2. In a second Terminal window, switch to the Django repo: `cd apps/django-backend`
+  - Sync the project's dependencies with the environment: `uv sync`
+  - Run the local server: `uv run manage.py runserver`
+  - Visit `http://localhost:3000/dashboard?backend=django` to see the demo data.
 
------
-
-<!-- Optional wording changes for overall Readme -->
-
-# Overthinklytics - Multi-Backend Analytics Dashboard
-
-Overthinklytics is a demonstration project showcasing how to build a backend-agnostic analytics dashboard that can seamlessly switch between multiple backend implementations at runtime without code changes.
-
-## Core Concept
-
-The project demonstrates polyglot architecture - a single Next.js frontend that can connect to any of three different backends:
-
-1. Django (Python) - Port 8000
-2. Kotlin/Spring Boot - Port 8080
-3. Next.js API Routes ("Third") - Port 3000
-
-You can switch backends via environment variables, URL parameters, or a floating UI switcher - no rebuild required.
-
-## What It Does
-
-### Analytics Dashboard (/dashboard)
-
-A professional analytics overview displaying:
-
-- 4 KPI Cards: Total Users (24.3k), Sessions (15.1k), Conversion Rate (3.9%), Revenue ($12.4k)
-- Traffic Chart: Line chart showing visits vs sessions over 10 days
-- Signups by Channel: Bar chart breaking down Organic, Paid, Referral, Social
-- Revenue Trend: Area chart showing daily revenue over 10 days
-- Device Share: Pie chart - Desktop (62%), Mobile (30%), Tablet (8%)
-
-### Backend Flexibility
-#
-The magic is in the runtime configuration system (apps/overthinklytics/src/lib/config.ts):
-
-4-tier priority for backend selection:
-1. URL query param: ?backend=django (highest priority)
-2. Environment variable: NEXT_PUBLIC_BACKEND=kotlin
-3. Per-backend URLs: NEXT_PUBLIC_KOTLIN_URL=http://localhost:8080
-4. Direct base URL: NEXT_PUBLIC_API_BASE_URL=http://api.example.com
-
-### API Endpoints
-
-All backends expose the same contract:
-
-| Endpoint                        | Response                            |
-|---------------------------------|-------------------------------------|
-| GET /analytics/kpis             | Latest KPI snapshot                 |
-| GET /analytics/traffic?limit=10 | Daily traffic data                  |
-| GET /analytics/signups          | Monthly signup breakdown by channel |
-| GET /analytics/revenue?limit=10 | Daily revenue data                  |
-| GET /analytics/device-share     | Device distribution snapshot        |
-| GET /health                     | Health check                        |
-
+3. Optional: use the Django admin to visualize the data.
+  - Visit `http://localhost:8000/admin` and login with `admin` / `admin`.
+  - All 5 models are visible and can be explored.
