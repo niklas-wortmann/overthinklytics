@@ -31,7 +31,7 @@ function getQueryParam(name: string): string | undefined {
 
 function getCookie(name: string): string | undefined {
   if (typeof document === 'undefined') return undefined;
-  const m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)'));
+  const m = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\\[\]/+^])/g, '\\$1') + '=([^;]*)'));
   return m ? decodeURIComponent(m[1]) : undefined;
 }
 
@@ -41,6 +41,7 @@ function getLocalStorage(name: string): string | undefined {
     const v = window.localStorage.getItem(name);
     return v ?? undefined;
   } catch {
+    // Silently fail if localStorage is not available
     return undefined;
   }
 }
