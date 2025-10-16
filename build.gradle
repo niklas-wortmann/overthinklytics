@@ -5,3 +5,47 @@ plugins {
 allprojects {
   apply plugin: 'dev.nx.gradle.project-graph'
 }
+
+// Root build for multi-project; adds aggregate convenience tasks for tests/check
+// and supports root-level filtering via -Ptests=pattern (or multiple patterns separated by comma/space).
+
+// Forward root-level -Ptests filter to all subprojects' Test tasks
+subprojects {
+  tasks.withType(Test).configureEach { Test t ->
+    if (rootProject.hasProperty('tests')) {
+      def raw = (rootProject.findProperty('tests') as String)?.trim()
+      if (raw) {
+        def patterns = raw.split(/[\s,]+/).findAll { it }
+        t.filter { TestFilter f ->
+          patterns.each { f.includeTestsMatching(it) }
+        }
+        // Ensure JUnit Platform is used (most subprojects already set this explicitly)
+        t.useJUnitPlatform()
+      }
+    }
+  }
+}
+
+// Aggregate task that runs all subprojects' test tasks
+tasks.register('allTests') {
+  group = 'verification'
+  description = 'Runs all subprojects test tasks. Supports -Ptests forwarding for filtering.'
+  dependsOn(subprojects.collect { sub ->
+    sub.tasks.findByName('test')
+  }.findAll { it != null })
+}
+
+// Keep `test` at the root as a friendly alias that supports -Ptests filtering
+// Note: This is a lifecycle/aggregate task, not of type Test, so `--tests` is not supported at the root.
+tasks.register('test') {
+  group = 'verification'
+  description = 'Aggregate alias to run all subprojects tests. Use -Ptests=pattern for filtering.'
+  dependsOn 'allTests'
+}
+
+// Similarly aggregate "check" to run all modules' checks from the root, if they exist.
+tasks.register('check') {
+  dependsOn(subprojects.collect { sub ->
+    sub.tasks.findByName('check')
+  }.findAll { it != null })
+}

@@ -8,10 +8,13 @@
     "coverage": "vitest run --config vitest.config.ts --coverage"
   },
   "dependencies": {
+    "lucide-react": "^0.460.0",
     "next": "~15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "lucide-react": "^0.460.0",
     "recharts": "^2.12.6"
+  },
+  "devDependencies": {
+    "@vitest/ui": "2.1.9"
   }
 }
