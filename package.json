@@ -31,7 +31,6 @@
     "@nx/js": "21.2.0",
     "@nx/next": "21.2.0",
     "@nx/playwright": "21.2.0",
-    "@nxlv/python": "21.2.0",
     "@playwright/test": "^1.36.0",
     "@swc-node/register": "~1.9.1",
     "@swc/cli": "~0.6.0",
