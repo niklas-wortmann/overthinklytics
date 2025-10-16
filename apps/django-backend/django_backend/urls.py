@@ -4,6 +4,7 @@ from django.urls import path
 
 from .views import (
     DeviceShareView,
+    HealthView,
     KpisView,
     RevenueView,
     SignupsView,

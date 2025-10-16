@@ -93,3 +93,10 @@ class DeviceShareView(APIView):
         devices = DeviceShare.objects.get_latest_snapshot()
         serializer = DeviceShareResponseSerializer({"data": devices})
         return Response(serializer.data)
+
+
+class HealthView(APIView):
+    """GET /health - Health check endpoint."""
+
+    def get(self, request):
+        return Response({"status": "ok", "backend": "django"})
