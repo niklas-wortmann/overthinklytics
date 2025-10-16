@@ -216,3 +216,6 @@ Requires `uv` be installed via [global one-liner](https://docs.astral.sh/uv/gett
 3. Optional: use the Django admin to visualize the data.
   - Visit `http://localhost:8000/admin` and login with `admin` / `admin`.
   - All 5 models are visible and can be explored.
+
+4. Run Tests: 
+  - Make sure in `apps/django-backend` directory and then `uv run manage.py test`.
