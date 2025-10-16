@@ -38,7 +38,7 @@
       "cache": true
     },
     "serve": {
-      "executor": "nx:run-commands",
+      "executor": "@nxlv/python:run-commands",
       "options": {
         "command": "uv run manage.py runserver",
         "cwd": "{projectRoot}"
@@ -49,7 +49,7 @@
       "executor": "@nxlv/python:ruff-check",
       "outputs": [],
       "options": {
-        "lintFilePatterns": ["django_backend", "tests"]
+        "lintFilePatterns": ["django_backend"]
       },
       "cache": true
     },
@@ -57,12 +57,12 @@
       "executor": "@nxlv/python:ruff-format",
       "outputs": [],
       "options": {
-        "filePatterns": ["django_backend", "tests"]
+        "filePatterns": ["django_backend"]
       },
       "cache": true
     },
     "test": {
-      "executor": "nx:run-commands",
+      "executor": "@nxlv/python:run-commands",
       "outputs": [
         "{workspaceRoot}/reports/{projectRoot}/unittests",
         "{workspaceRoot}/coverage/{projectRoot}"
