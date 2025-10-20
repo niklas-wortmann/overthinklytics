@@ -1,23 +1,23 @@
 package com.overthinklytics.analytics.service
 
 import com.overthinklytics.analytics.api.model.*
+import com.overthinklytics.analytics.repository.*
+import org.springframework.data.domain.PageRequest
+import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
-import java.time.LocalDate
 
 @Service
 class AnalyticsService(
-    private val kpiRepository: com.overthinklytics.analytics.repository.KpiRepository,
-    private val trafficRepository: com.overthinklytics.analytics.repository.TrafficRepository,
-    private val revenueRepository: com.overthinklytics.analytics.repository.RevenueRepository,
-    private val signupRepository: com.overthinklytics.analytics.repository.SignupRepository,
-    private val deviceShareRepository: com.overthinklytics.analytics.repository.DeviceShareRepository,
+  private val kpiRepo: KpiSnapshotRepository,
+  private val trafficRepo: TrafficDailyRepository,
+  private val revenueRepo: RevenueDailyRepository,
+  private val signupRepo: SignupByChannelRepository,
+  private val deviceShareRepo: DeviceShareRepository,
 ) {
 
     fun getKpis(): KpiResponse {
-        val latest = kpiRepository.findLatest()
-        if (latest == null) {
-            return KpiResponse(emptyList())
-        }
+        val latest = kpiRepo.findTopByOrderByCapturedAtDesc()
+            ?: return KpiResponse(emptyList())
         val kpis = listOf(
             Kpi(label = "Total Users", value = formatNumber(latest.totalUsers), delta = 0.0),
             Kpi(label = "Sessions", value = formatNumber(latest.sessions), delta = 0.0),
@@ -28,10 +28,11 @@ class AnalyticsService(
     }
 
     fun getTraffic(limit: Int): TrafficResponse {
-        val rows = trafficRepository.findRecent(limit)
+        val page = trafficRepo.findAll(PageRequest.of(0, limit, Sort.by(Sort.Direction.DESC, "date")))
+        val rows = page.content.asReversed() // ascending for charts
         val points = rows.map { r ->
             TrafficPoint(
-                day = r.date.toString(),
+                day = r.date,
                 visits = r.visits,
                 sessions = r.sessions,
             )
@@ -40,17 +41,21 @@ class AnalyticsService(
     }
 
     fun getSignupsByChannel(): SignupResponse {
-        val rows = signupRepository.findLatestMonth()
+        val top = signupRepo.findTopByOrderByYearDescMonthDesc() ?: return SignupResponse(emptyList())
+        val yr = top.year
+        val mon = top.month
+        val rows = signupRepo.findByYearAndMonthOrderByChannelAsc(yr, mon)
         return SignupResponse(
             data = rows.map { SignupPoint(it.channel, it.signups) }
         )
     }
 
     fun getRevenue(limit: Int): RevenueResponse {
-        val rows = revenueRepository.findRecent(limit)
+        val page = revenueRepo.findAll(PageRequest.of(0, limit, Sort.by(Sort.Direction.DESC, "date")))
+        val rows = page.content.asReversed()
         val points = rows.map { r ->
             RevenuePoint(
-                day = r.date.toString(),
+                day = r.date,
                 value = r.valueCents / 100.0,
             )
         }
@@ -58,9 +63,11 @@ class AnalyticsService(
     }
 
     fun getDeviceShare(): DeviceShareResponse {
-        val rows = deviceShareRepository.findLatestSnapshot()
+        val top = deviceShareRepo.findTopByOrderById_SnapshotDateDesc() ?: return DeviceShareResponse(emptyList())
+        val snapshot = top.id.snapshotDate
+        val rows = deviceShareRepo.findById_SnapshotDateOrderById_DeviceAsc(snapshot)
         return DeviceShareResponse(
-            data = rows.map { DeviceSharePoint(name = it.device, value = it.sharePct) }
+            data = rows.map { DeviceSharePoint(name = it.id.device, value = it.sharePct) }
         )
     }
 

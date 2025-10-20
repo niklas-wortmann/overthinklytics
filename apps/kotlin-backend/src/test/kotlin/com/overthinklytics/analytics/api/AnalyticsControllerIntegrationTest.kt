@@ -1,5 +1,6 @@
 package com.overthinklytics.analytics.api
 
+import com.overthinklytics.demo.DemoApplication
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -7,12 +8,22 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
 import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.test.context.TestPropertySource
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
-@SpringBootTest
+@SpringBootTest(classes = [DemoApplication::class])
 @AutoConfigureMockMvc
+@TestPropertySource(properties = [
+    "spring.datasource.url=jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1",
+    "spring.datasource.driver-class-name=org.h2.Driver",
+    "spring.datasource.username=sa",
+    "spring.datasource.password=",
+    "spring.jpa.hibernate.ddl-auto=none",
+    "spring.jpa.database-platform=org.hibernate.dialect.H2Dialect",
+    "spring.jpa.properties.hibernate.globally_quoted_identifiers=true"
+])
 class AnalyticsControllerIntegrationTest {
 
     @Autowired
@@ -23,63 +34,66 @@ class AnalyticsControllerIntegrationTest {
 
     @BeforeEach
     fun setupDb() {
-        // Create tables if not exist (SQLite)
-        jdbcTemplate.execute(
-            """
-            CREATE TABLE IF NOT EXISTS KpiSnapshot (
-                capturedAt TEXT PRIMARY KEY,
-                totalUsers INTEGER NOT NULL,
-                sessions INTEGER NOT NULL,
-                conversionPct REAL NOT NULL,
-                revenueCents INTEGER NOT NULL
-            )
-            """.trimIndent()
-        )
-        jdbcTemplate.execute(
-            """
-            CREATE TABLE IF NOT EXISTS TrafficDaily (
-                date TEXT PRIMARY KEY,
-                visits INTEGER NOT NULL,
-                sessions INTEGER NOT NULL
-            )
-            """.trimIndent()
-        )
-        jdbcTemplate.execute(
-            """
-            CREATE TABLE IF NOT EXISTS RevenueDaily (
-                date TEXT PRIMARY KEY,
-                valueCents INTEGER NOT NULL
-            )
-            """.trimIndent()
-        )
-        jdbcTemplate.execute(
-            """
-            CREATE TABLE IF NOT EXISTS SignupByChannel (
-                year INTEGER NOT NULL,
-                month INTEGER NOT NULL,
-                channel TEXT NOT NULL,
-                signups INTEGER NOT NULL,
-                PRIMARY KEY (year, month, channel)
-            )
-            """.trimIndent()
-        )
-        jdbcTemplate.execute(
-            """
-            CREATE TABLE IF NOT EXISTS DeviceShare (
-                snapshotDate TEXT NOT NULL,
-                device TEXT NOT NULL,
-                sharePct REAL NOT NULL,
-                PRIMARY KEY (snapshotDate, device)
-            )
-            """.trimIndent()
-        )
+        // Drop tables if they exist (for clean state between tests)
+        listOf("kpi_snapshot", "traffic_daily", "revenue_daily", "signup_by_channel", "device_share").forEach { table ->
+            try {
+                jdbcTemplate.execute("DROP TABLE IF EXISTS \"$table\"")
+            } catch (e: Exception) {
+                // Ignore if table doesn't exist
+            }
+        }
 
-        // Cleanup
-        jdbcTemplate.execute("DELETE FROM KpiSnapshot")
-        jdbcTemplate.execute("DELETE FROM TrafficDaily")
-        jdbcTemplate.execute("DELETE FROM RevenueDaily")
-        jdbcTemplate.execute("DELETE FROM SignupByChannel")
-        jdbcTemplate.execute("DELETE FROM DeviceShare")
+        // Create tables if not exist (H2 compatible)
+        jdbcTemplate.execute(
+            """
+            CREATE TABLE IF NOT EXISTS "kpi_snapshot" (
+                "captured_at" VARCHAR(255) PRIMARY KEY,
+                "total_users" INTEGER NOT NULL,
+                "sessions" INTEGER NOT NULL,
+                "conversion_pct" DOUBLE NOT NULL,
+                "revenue_cents" INTEGER NOT NULL
+            )
+            """.trimIndent()
+        )
+        jdbcTemplate.execute(
+            """
+            CREATE TABLE IF NOT EXISTS "traffic_daily" (
+                "date" VARCHAR(255) PRIMARY KEY,
+                "visits" INTEGER NOT NULL,
+                "sessions" INTEGER NOT NULL
+            )
+            """.trimIndent()
+        )
+        jdbcTemplate.execute(
+            """
+            CREATE TABLE IF NOT EXISTS "revenue_daily" (
+                "date" VARCHAR(255) PRIMARY KEY,
+                "value_cents" INTEGER NOT NULL
+            )
+            """.trimIndent()
+        )
+        jdbcTemplate.execute(
+            """
+            CREATE TABLE IF NOT EXISTS "signup_by_channel" (
+                "id" INTEGER AUTO_INCREMENT PRIMARY KEY,
+                "year" INTEGER NOT NULL,
+                "month" INTEGER NOT NULL,
+                "channel" VARCHAR(255) NOT NULL,
+                "signups" INTEGER NOT NULL,
+                UNIQUE ("year", "month", "channel")
+            )
+            """.trimIndent()
+        )
+        jdbcTemplate.execute(
+            """
+            CREATE TABLE IF NOT EXISTS "device_share" (
+                "snapshot_date" VARCHAR(255) NOT NULL,
+                "device" VARCHAR(255) NOT NULL,
+                "share_pct" DOUBLE NOT NULL,
+                PRIMARY KEY ("snapshot_date", "device")
+            )
+            """.trimIndent()
+        )
     }
 
     @Test
@@ -94,8 +108,8 @@ class AnalyticsControllerIntegrationTest {
     @Test
     fun `kpis returns formatted values`() {
         jdbcTemplate.update(
-            "INSERT INTO KpiSnapshot (capturedAt, totalUsers, sessions, conversionPct, revenueCents) VALUES (?, ?, ?, ?, ?)",
-            "2025-10-15T10:00:00", 12000, 3456, 7.8, 1_234_500
+            "INSERT INTO \"kpi_snapshot\" (\"captured_at\", \"total_users\", \"sessions\", \"conversion_pct\", \"revenue_cents\") VALUES (?, ?, ?, ?, ?)",
+            "2025-10-15T10:00:00", 12000, 3456, 7.8, 123_450
         )
 
         mockMvc.perform(get("/api/analytics/kpis").accept(MediaType.APPLICATION_JSON))
@@ -113,9 +127,9 @@ class AnalyticsControllerIntegrationTest {
     @Test
     fun `traffic returns ascending data and validates limit`() {
         // Insert 3 days
-        jdbcTemplate.update("INSERT INTO TrafficDaily (date, visits, sessions) VALUES (?, ?, ?)", "2025-01-13", 10, 5)
-        jdbcTemplate.update("INSERT INTO TrafficDaily (date, visits, sessions) VALUES (?, ?, ?)", "2025-01-14", 20, 10)
-        jdbcTemplate.update("INSERT INTO TrafficDaily (date, visits, sessions) VALUES (?, ?, ?)", "2025-01-15", 30, 15)
+        jdbcTemplate.update("INSERT INTO \"traffic_daily\" (\"date\", \"visits\", \"sessions\") VALUES (?, ?, ?)", "2025-01-13", 10, 5)
+        jdbcTemplate.update("INSERT INTO \"traffic_daily\" (\"date\", \"visits\", \"sessions\") VALUES (?, ?, ?)", "2025-01-14", 20, 10)
+        jdbcTemplate.update("INSERT INTO \"traffic_daily\" (\"date\", \"visits\", \"sessions\") VALUES (?, ?, ?)", "2025-01-15", 30, 15)
 
         mockMvc.perform(get("/api/analytics/traffic").param("limit", "2"))
             .andExpect(status().isOk)
@@ -137,11 +151,11 @@ class AnalyticsControllerIntegrationTest {
     @Test
     fun `signups returns latest month channel data`() {
         // Older month
-        jdbcTemplate.update("INSERT INTO SignupByChannel (year, month, channel, signups) VALUES (?, ?, ?, ?)", 2025, 8, "Email", 10)
+        jdbcTemplate.update("INSERT INTO \"signup_by_channel\" (\"year\", \"month\", \"channel\", \"signups\") VALUES (?, ?, ?, ?)", 2025, 8, "Email", 10)
         // Latest month rows
-        jdbcTemplate.update("INSERT INTO SignupByChannel (year, month, channel, signups) VALUES (?, ?, ?, ?)", 2025, 9, "Ads", 25)
-        jdbcTemplate.update("INSERT INTO SignupByChannel (year, month, channel, signups) VALUES (?, ?, ?, ?)", 2025, 9, "Referral", 40)
-        jdbcTemplate.update("INSERT INTO SignupByChannel (year, month, channel, signups) VALUES (?, ?, ?, ?)", 2025, 9, "Email", 30)
+        jdbcTemplate.update("INSERT INTO \"signup_by_channel\" (\"year\", \"month\", \"channel\", \"signups\") VALUES (?, ?, ?, ?)", 2025, 9, "Ads", 25)
+        jdbcTemplate.update("INSERT INTO \"signup_by_channel\" (\"year\", \"month\", \"channel\", \"signups\") VALUES (?, ?, ?, ?)", 2025, 9, "Referral", 40)
+        jdbcTemplate.update("INSERT INTO \"signup_by_channel\" (\"year\", \"month\", \"channel\", \"signups\") VALUES (?, ?, ?, ?)", 2025, 9, "Email", 30)
 
         mockMvc.perform(get("/api/analytics/signups"))
             .andExpect(status().isOk)
@@ -153,9 +167,9 @@ class AnalyticsControllerIntegrationTest {
 
     @Test
     fun `revenue returns ascending data and validates limit`() {
-        jdbcTemplate.update("INSERT INTO RevenueDaily (date, valueCents) VALUES (?, ?)", "2025-01-13", 100)
-        jdbcTemplate.update("INSERT INTO RevenueDaily (date, valueCents) VALUES (?, ?)", "2025-01-14", 200)
-        jdbcTemplate.update("INSERT INTO RevenueDaily (date, valueCents) VALUES (?, ?)", "2025-01-15", 300)
+        jdbcTemplate.update("INSERT INTO \"revenue_daily\" (\"date\", \"value_cents\") VALUES (?, ?)", "2025-01-13", 100)
+        jdbcTemplate.update("INSERT INTO \"revenue_daily\" (\"date\", \"value_cents\") VALUES (?, ?)", "2025-01-14", 200)
+        jdbcTemplate.update("INSERT INTO \"revenue_daily\" (\"date\", \"value_cents\") VALUES (?, ?)", "2025-01-15", 300)
 
         mockMvc.perform(get("/api/analytics/revenue").param("limit", "2"))
             .andExpect(status().isOk)
@@ -172,10 +186,10 @@ class AnalyticsControllerIntegrationTest {
     @Test
     fun `device share returns latest snapshot`() {
         // Older snapshot
-        jdbcTemplate.update("INSERT INTO DeviceShare (snapshotDate, device, sharePct) VALUES (?, ?, ?)", "2025-10-14T12:00:00Z", "Desktop", 55.0)
+        jdbcTemplate.update("INSERT INTO \"device_share\" (\"snapshot_date\", \"device\", \"share_pct\") VALUES (?, ?, ?)", "2025-10-14T12:00:00Z", "Desktop", 55.0)
         // Latest snapshot
-        jdbcTemplate.update("INSERT INTO DeviceShare (snapshotDate, device, sharePct) VALUES (?, ?, ?)", "2025-10-15T12:00:00Z", "Mobile", 60.0)
-        jdbcTemplate.update("INSERT INTO DeviceShare (snapshotDate, device, sharePct) VALUES (?, ?, ?)", "2025-10-15T12:00:00Z", "Desktop", 40.0)
+        jdbcTemplate.update("INSERT INTO \"device_share\" (\"snapshot_date\", \"device\", \"share_pct\") VALUES (?, ?, ?)", "2025-10-15T12:00:00Z", "Mobile", 60.0)
+        jdbcTemplate.update("INSERT INTO \"device_share\" (\"snapshot_date\", \"device\", \"share_pct\") VALUES (?, ?, ?)", "2025-10-15T12:00:00Z", "Desktop", 40.0)
 
         mockMvc.perform(get("/api/analytics/device-share"))
             .andExpect(status().isOk)

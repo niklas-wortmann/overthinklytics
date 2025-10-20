@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @Validated
 @RestController
-@RequestMapping("/analytics")
+@RequestMapping("/api/analytics")
 class AnalyticsController(
     private val analyticsService: AnalyticsService
 ) {
