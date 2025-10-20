@@ -19,10 +19,7 @@ node_modules
 
 # IDE - VSCode
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+
 
 # misc
 /.sass-cache
@@ -59,9 +56,7 @@ __pycache__/
 build/
 !gradle/wrapper/gradle-wrapper.properties
 
-!/apps/build/
 **/.nx/
 **/.gradle/
 **/.venv/
 **/reports/
-!/apps/kotlin-backend/build/
