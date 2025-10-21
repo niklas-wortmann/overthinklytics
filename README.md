@@ -51,11 +51,13 @@ Backend prerequisites (optional, depending on which backend you run):
 ## Quick start checklist
 1) Clone and install dependencies
    - pnpm install
-2) Prepare environment variables (see next section)
+2) Do not change environment variables
+   - Use the preconfigured compound Run/Debug configurations instead (see below). They start the right backend and wire the frontend automatically.
 3) Generate Prisma client and seed demo data (SQLite)
    - pnpm prisma:generate
    - pnpm db:seed  # idempotent; creates tables if missing and fills demo data
-4) Start the frontend and one backend of your choice
+4) Run a demo configuration
+   - In IntelliJ IDEA/PyCharm/WebStorm, pick Run > Run… > “Kotlin Demo”, “Django Demo”, or “Next Demo”
 
 ## Environment variables
 Create a .env file at the repo root (or apps/overthinklytics/.env.local for frontend-only) if you want to customize frontend behavior. No DATABASE_URL is required for local dev because Prisma is configured to use SQLite at prisma/dev.db by default.
@@ -99,10 +101,19 @@ After seeding, you can visit http://localhost:3000/demo-insights when the fronte
 
 ## Running the apps
 
+Recommended: Compound Run/Debug configurations (no env vars)
+- Kotlin Demo — starts Kotlin backend + Next.js frontend pre-wired to it
+- Django Demo — starts Django backend + Next.js frontend pre-wired to it
+- Next Demo — starts the Next.js frontend only
+
+Open Run > Run… and choose one of the above. These configurations are stored in .run/*.run.xml and are checked into the repo.
+
+Advanced: CLI commands (optional)
+
 Frontend (Next.js)
 - Dev: npx nx dev overthinklytics
 - Build: npx nx build overthinklytics
-- Select backend at runtime:
+- Select backend at runtime (if you really need to override the demos):
   - Set NEXT_PUBLIC_BACKEND=django|kotlin, or
   - Set NEXT_PUBLIC_API_BASE_URL=http://localhost:8000 (or 8080), or
   - Append ?backend=django to the URL, and/or enable the in-app switcher with NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1
@@ -113,7 +124,7 @@ Django backend (Python)
   - uv sync
   - uv run manage.py migrate  # if using Django models/migrations
   - uv run manage.py runserver
-- Then open http://localhost:3000/dashboard?backend=django
+- If not using the Demo configs, open http://localhost:3000/dashboard?backend=django
 - Admin (if configured): http://localhost:8000/admin (default demo: admin/admin)
 
 Kotlin backend (Spring)
@@ -146,7 +157,7 @@ Kotlin backend (Spring)
   - To reset data, delete prisma/dev.db and run pnpm db:seed again.
   - If you override DATABASE_URL, ensure it points to a valid SQLite path (e.g., file:./prisma/dev.db).
 - Port conflicts
-  - Frontend uses 3000, Django 8000, Kotlin 8080 — adjust if needed and update env variables
+  - Frontend uses 3000, Django 8000, Kotlin 8080 — adjust the Run/Debug configurations (or env vars if using advanced overrides)
 - Java version
   - Ensure java -version reports 21.x; mismatched JDKs can cause Gradle build issues
 - Python/uv
@@ -267,20 +278,21 @@ There are three ways to select a backend (highest priority first):
 - URL query: append `?backend=django` (or `kotlin` / `third`).
 - Cookie/localStorage: enable the dev switcher by setting `NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1` and use the floating selector in the app UI. It persists in a cookie and `localStorage`.
 
-Quick start examples // TODO FIX THIS SECTION
+Recommended: one-click demos (no env vars)
 
-- Dev with Django backend:
-  ```sh
-  NEXT_PUBLIC_BACKEND=django npx nx dev @overthinklytics/overthinklytics
-  ```
-- Dev with explicit base URL:
-  ```sh
-  NEXT_PUBLIC_API_BASE_URL=http://localhost:8080 npx nx dev @overthinklytics/overthinklytics
-  ```
-- Show the in-app switcher (dev only):
-  ```sh
-  NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1 npx nx dev @overthinklytics/overthinklytics
-  ```
+Use the preconfigured compound Run/Debug configurations in IntelliJ IDEA/WebStorm:
+
+- Kotlin Demo — starts the Kotlin/Spring backend and the Next.js frontend pre-wired to it
+- Django Demo — starts the Django backend and the Next.js frontend pre-wired to it
+- Next Demo — starts the Next.js frontend only with sensible defaults
+
+Where to find them:
+- Open Run > Run… and choose one of: “Kotlin Demo”, “Django Demo”, or “Next Demo”.
+- These live in .run/*.run.xml and are checked into the repo.
+
+Notes
+- No manual environment variable setup is required for these demos.
+- If you need to override behavior, see the advanced options below, but prefer the demos first.
 
  Notes
  

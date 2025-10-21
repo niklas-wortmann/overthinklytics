@@ -68,12 +68,12 @@ export function clearBackendOverride() {
 }
 
 export function getSelectedBackend(): BackendKey {
-  // Priority: URL ?backend= -> cookie/localStorage -> env NEXT_PUBLIC_BACKEND -> default "django"
+  // Priority: URL ?backend= -> env NEXT_PUBLIC_BACKEND -> cookie/localStorage -> default "django"
   return (
     getQueryParam('backend') ||
+    safeGet('NEXT_PUBLIC_BACKEND') ||
     getLocalStorage('ol_backend') ||
     getCookie('ol_backend') ||
-    safeGet('NEXT_PUBLIC_BACKEND') ||
     'third'
   );
 }

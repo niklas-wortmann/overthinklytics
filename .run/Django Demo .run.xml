@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Django Demo " type="CompoundRunConfigurationType">
+    <toRun name="django backend" type="Python.DjangoServer" />
+    <toRun name="frontend django" type="NxRunConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>

@@ -5,6 +5,8 @@
     <option name="nx-target-configuration" value="" />
     <envs />
     <option name="arguments" value="" />
-    <method v="2" />
+    <method v="2">
+      <option name="LaunchBrowser.Before.Run" url="http://localhost:3000/dashboard" />
+    </method>
   </configuration>
 </component>

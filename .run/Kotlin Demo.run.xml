@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Kotlin Demo" type="CompoundRunConfigurationType">
+    <toRun name="frontend kotlin" type="NxRunConfigurationType" />
+    <toRun name="Kotlin Backend" type="SpringBootApplicationConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
