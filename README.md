@@ -166,13 +166,13 @@ The sections below include additional Nx-specific details and notes retained fro
 To run the dev server for your app, use:
 
 ```sh
-npx nx dev overthinklytics
+npx nx dev @overthinklytics/overthinklytics
 ```
 
 To create a production bundle:
 
 ```sh
-npx nx build overthinklytics
+npx nx build @overthinklytics/overthinklytics
 ```
 
 To see all available targets to run for a project, run:
@@ -267,19 +267,19 @@ There are three ways to select a backend (highest priority first):
 - URL query: append `?backend=django` (or `kotlin` / `third`).
 - Cookie/localStorage: enable the dev switcher by setting `NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1` and use the floating selector in the app UI. It persists in a cookie and `localStorage`.
 
-Quick start examples
+Quick start examples // TODO FIX THIS SECTION
 
 - Dev with Django backend:
   ```sh
-  NEXT_PUBLIC_BACKEND=django npx nx dev overthinklytics
+  NEXT_PUBLIC_BACKEND=django npx nx dev @overthinklytics/overthinklytics
   ```
 - Dev with explicit base URL:
   ```sh
-  NEXT_PUBLIC_API_BASE_URL=http://localhost:8080 npx nx dev overthinklytics
+  NEXT_PUBLIC_API_BASE_URL=http://localhost:8080 npx nx dev @overthinklytics/overthinklytics
   ```
 - Show the in-app switcher (dev only):
   ```sh
-  NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1 npx nx dev overthinklytics
+  NEXT_PUBLIC_SHOW_BACKEND_SWITCHER=1 npx nx dev @overthinklytics/overthinklytics
   ```
 
  Notes
