@@ -6,7 +6,7 @@ import { setBackendOverride, clearBackendOverride, getSelectedBackend } from '@/
 const BACKENDS = [
   { key: 'django', label: 'Django' },
   { key: 'kotlin', label: 'Kotlin/Spring' },
-  { key: 'third', label: 'Third' },
+  { key: 'third', label: 'Next' },
 ];
 
 export function BackendSwitcher() {
