@@ -147,7 +147,5 @@ REST_FRAMEWORK = {
 }
 
 # CORS settings - allow frontend to access API
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-]
+# Allow all origins to prevent CORS issues during development across apps/backends
+CORS_ALLOW_ALL_ORIGINS = True
