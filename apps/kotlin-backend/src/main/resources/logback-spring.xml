@@ -1,0 +1,28 @@
+<configuration scan="true">
+  <property name="LOG_LEVEL" value="${LOG_LEVEL:-INFO}"/>
+  <property name="LOG_FORMAT" value="${LOG_FORMAT:-json}"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %-5level %logger - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="JSON" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+      <customFields>{"app":"kotlin-backend"}</customFields>
+    </encoder>
+  </appender>
+
+  <root level="${LOG_LEVEL}">
+    <appender-ref ref="JSON"/>
+  </root>
+
+  <if condition='property("LOG_FORMAT").equals("pretty")'>
+    <then>
+      <root level="${LOG_LEVEL}">
+        <appender-ref ref="CONSOLE"/>
+      </root>
+    </then>
+  </if>
+</configuration>
