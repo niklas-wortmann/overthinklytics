@@ -14,7 +14,12 @@ Tip: Keep the JetBrains AI Assistant panel open and the Database tool window doc
 ## Scenario A — AI Misalignment Debt
 
 ### Story
-You shipped fast with AI scaffolding a small analytics endpoint and tests. A week later, guardrail tests expose a mismatch: the AI treated the reporting window as end-inclusive and counted internal “test” events as billable. One test passes that shouldn’t; another fails. A quick debug session confirms the off-by-one and filter gap. You extract and rename the intent (`isBillableEvent`), fix the predicate (end is exclusive; exclude test/internal), update tests, and commit—the misalignment debt is paid down.
+You shipped fast with AI scaffolding a small analytics endpoint and tests. 
+A week later, guardrail tests expose a mismatch: the AI treated the reporting window as end-inclusive and counted internal “test” events as billable. 
+One test passes that shouldn’t; another fails. A quick debug session confirms the off-by-one and filter gap. 
+You extract and rename the intent (`isBillableEvent`), fix the predicate (end is exclusive; exclude test/internal), 
+update tests, and commit—the misalignment debt is paid down.
+
 
 
 ### What we’ll touch in the repo
@@ -27,7 +32,7 @@ You shipped fast with AI scaffolding a small analytics endpoint and tests. A wee
   - Django: `apps/django-backend/**/tests.py` or `tests/` package; run via `uv run manage.py test`
   - Next.js: component/API tests via Vitest/Jest in `apps/overthinklytics/src/**/__tests__/**`
 
-### Workflow (step by step)
+### Workflow (step by step) TODO: Add Claude Agent and create Claude Rules
 
 Kotlin/Spring path
 1) Open the service code

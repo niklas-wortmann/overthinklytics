@@ -68,3 +68,4 @@ build/
 !/.idea/dataSources.local.xml
 !/.idea/JunieProjectTechnologies.xml
 !/.idea/sqldialects.xml
+!/.idea/workspace.xml

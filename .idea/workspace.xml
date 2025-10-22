@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="AutomaticModuleUnloader">
+    <loaded-modules>
+      <module name="django-backend" />
+      <module name="overthinklytics.apps.kotlin-backend" />
+      <module name="overthinklytics.apps.kotlin-backend.test" />
+      <module name="overthinklytics" />
+      <module name="overthinklytics.apps" />
+      <module name="overthinklytics.apps.kotlin-backend.main" />
+    </loaded-modules>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a4cabf9-c87c-4443-9c8f-fa865fe25c7d" name="Changes" comment="rea">
+      <change beforePath="$PROJECT_DIR$/demo.md" beforeDir="false" afterPath="$PROJECT_DIR$/demo.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/apps/kotlin-backend">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/kotlin-backend">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/apps/kotlin-backend">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/apps">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="overthinklytics" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="overthinklytics" type="f1a62948:ProjectNode" />
+                <item name="apps" type="2d1252cf:ModuleNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/6.2.11/b634854063164c2d42e757f223183aa27806ef7e/spring-tx-6.2.11-sources.jar!/org/springframework/dao/InvalidDataAccessResourceUsageException.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/default.d.ts" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="33pzOzkyXi0iqq32RBGLjwkTyAs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.django backend.executor": "Run",
+    "Django tests.Test: django_backend.tests.BaseTestCase.executor": "Run",
+    "Gradle.AnalyticsControllerIntegrationTest.executor": "Run",
+    "Gradle.AnalyticsServiceTest.executor": "Run",
+    "Gradle.AnalyticsServiceTest.should return traffic data sorted by ascending date.executor": "Debug",
+    "Gradle.Build kotlin-backend.executor": "Run",
+    "Gradle.Build overthinklytics.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.KpiRepositoryTest.executor": "Run",
+    "Gradle.RevenueRepositoryTest.executor": "Run",
+    "Gradle.RevenueRepositoryTest.findRecent returns empty when no rows.executor": "Run",
+    "Gradle.TrafficRepositoryTest.findRecent returns empty list when no data exists.executor": "Run",
+    "Gradle.overthinklytics [bootRun].executor": "Run",
+    "Gradle.overthinklytics [bootTestRun].executor": "Run",
+    "Gradle.overthinklytics [buildNeeded].executor": "Run",
+    "Gradle.overthinklytics [test].executor": "Run",
+    "Gradle.overthinklytics:apps:kotlin-backend [bootRun].executor": "Run",
+    "Gradle.overthinklytics:apps:kotlin-backend [dependencies].executor": "Run",
+    "Gradle.overthinklytics:apps:kotlin-backend [test].executor": "Run",
+    "Gradle.overthinklytics:kotlin-backend [projects].executor": "Run",
+    "HTTP Request.All in generated-requests.executor": "Run",
+    "HTTP Request.DemoApplication (1) | #2.executor": "Run",
+    "HTTP Request.DemoApplication | #1.executor": "Run",
+    "HTTP Request.DemoApplication | #2.executor": "Run",
+    "HTTP Request.Kotlin Backend | #1.executor": "Run",
+    "HTTP Request.generated-requests | #2.executor": "Run",
+    "HTTP Request.generated-requests | #3.executor": "Run",
+    "HTTP Request.overthinklytics-endpoints | #1.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Nx.:apps:kotlin-backend:test.executor": "Run",
+    "Nx.@overthinklytics/overthinklytics:dev.executor": "Run",
+    "Nx.@overthinklytics/overthinklytics:start.executor": "Run",
+    "Nx.@overthinklytics/overthinklytics:test.executor": "Run",
+    "Nx.@overthinklytics/overthinklytics:test:ui.executor": "Run",
+    "Nx.django-backend:build.executor": "Run",
+    "Nx.django-backend:serve.executor": "Run",
+    "Nx.django-backend:test.executor": "Run",
+    "Nx.frontend django.executor": "Run",
+    "Nx.frontend kotlin.executor": "Run",
+    "Nx.frontend.executor": "Run",
+    "Nx.kotlin-backend:bootRun.executor": "Run",
+    "Nx.kotlin-backend:test-all.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DemoApplication (1).executor": "Run",
+    "Spring Boot.DemoApplication.executor": "Run",
+    "Spring Boot.Kotlin Backend.executor": "Run",
+    "Vitest.DashboardPage.executor": "Run",
+    "Vitest.DashboardPage.loads and displays KPI cards and chart titles on success.executor": "Run",
+    "Vitest.getUserIdFromRequest.executor": "Run",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForEAPUsers.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics",
+    "llm.McpServerEditPanel.switcher": "1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.db:seed.executor": "Run",
+    "npm.prisma:generate.executor": "Run",
+    "npm.prisma:migrate.executor": "Run",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.20114942",
+    "settings.editor.selected.configurable": "junie.project.settings",
+    "settings.editor.splitter.proportion": "0.301",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "dev.nx.console.project_details_files": [
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/overthinklytics-e2e/package.json",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/overthinklytics-e2e/tsconfig.json",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/overthinklytics-e2e/playwright.config.ts",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/overthinklytics-e2e/eslint.config.mjs",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/overthinklytics/package.json",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/overthinklytics/next.config.js",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/overthinklytics/eslint.config.mjs",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/kotlin-backend/project.json",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/kotlin-backend/package.json",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/kotlin-backend/build.gradle",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/build.gradle",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/django-backend/project.json",
+      "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/apps/django-backend/package.json"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/apps/overthinklytics/src/app/dashboard/analyticsTitle.tsx" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Compound.Kotlin Demo">
+    <configuration name="Test: django_backend.tests.BaseTestCase" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="django-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="django_backend.tests.BaseTestCase" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="AnalyticsServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":apps:kotlin-backend:test" />
+            <option value="--tests" />
+            <option value="&quot;com.overthinklytics.analytics.service.AnalyticsServiceTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="AnalyticsServiceTest.should return traffic data sorted by ascending date" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":apps:kotlin-backend:test" />
+            <option value="--tests" />
+            <option value="&quot;com.overthinklytics.analytics.service.AnalyticsServiceTest.should return traffic data sorted by ascending date&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="frontend django" type="NxRunConfigurationType">
+      <option name="nx-projects" value="@overthinklytics/overthinklytics" />
+      <option name="nx-targets" value="dev" />
+      <option name="nx-target-configuration" value="" />
+      <envs />
+      <option name="arguments" value="" />
+      <method v="2">
+        <option name="LaunchBrowser.Before.Run" url="http://localhost:3000/dashboard?backend=django" />
+      </method>
+    </configuration>
+    <configuration name="frontend kotlin" type="NxRunConfigurationType">
+      <option name="nx-projects" value="@overthinklytics/overthinklytics" />
+      <option name="nx-targets" value="dev" />
+      <option name="nx-target-configuration" value="" />
+      <envs />
+      <option name="arguments" value="" />
+      <method v="2">
+        <option name="LaunchBrowser.Before.Run" url="http://localhost:3000/dashboard?backend=kotlin" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Compound.Kotlin Demo" />
+      <item itemvalue="Compound.Django Demo " />
+      <item itemvalue="Compound.Next Demo" />
+      <item itemvalue="Django Server.django backend" />
+      <item itemvalue="Django tests.Test: django_backend.tests.BaseTestCase" />
+      <item itemvalue="Gradle.AnalyticsServiceTest" />
+      <item itemvalue="Gradle.AnalyticsServiceTest.should return traffic data sorted by ascending date" />
+      <item itemvalue="Nx.frontend" />
+      <item itemvalue="Nx.frontend kotlin" />
+      <item itemvalue="Nx.frontend django" />
+      <item itemvalue="Spring Boot.Kotlin Backend" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Django tests.Test: django_backend.tests.BaseTestCase" />
+        <item itemvalue="Gradle.AnalyticsServiceTest.should return traffic data sorted by ascending date" />
+        <item itemvalue="Gradle.AnalyticsServiceTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a4cabf9-c87c-4443-9c8f-fa865fe25c7d" name="Changes" comment="" />
+      <created>1760028774159</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760028774159</updated>
+      <workItem from="1760028774824" duration="1064000" />
+      <workItem from="1760030621273" duration="391000" />
+      <workItem from="1760031016046" duration="27590000" />
+      <workItem from="1760389194125" duration="11718000" />
+      <workItem from="1760465628988" duration="401000" />
+      <workItem from="1760466129495" duration="254000" />
+      <workItem from="1760466561053" duration="5308000" />
+      <workItem from="1760536598351" duration="6074000" />
+      <workItem from="1760559238566" duration="7004000" />
+      <workItem from="1760961057190" duration="7984000" />
+      <workItem from="1760981303171" duration="35322000" />
+      <workItem from="1761158609366" duration="5000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnloadedModulesList">
+    <module name="demo" />
+    <module name="demo.main" />
+    <module name="demo.test" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add test for AnalyticsServiceTest.kt" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test for AnalyticsServiceTest.kt" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/apps/kotlin-backend/build.gradle</url>
+          <line>45</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/overthinklytics$Test__django_backend_tests_BaseTestCase.coverage" NAME="Test: django_backend.tests.BaseTestCase Coverage Results" MODIFIED="1761152321656" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>
