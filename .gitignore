@@ -60,3 +60,11 @@ build/
 **/.gradle/
 **/.venv/
 **/reports/
+!/.idea/externalDependencies.xml
+!/.idea/data_source_mapping.xml
+
+!/.idea/dataSources.xml
+
+!/.idea/dataSources.local.xml
+!/.idea/JunieProjectTechnologies.xml
+!/.idea/sqldialects.xml

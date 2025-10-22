@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalDependencies">
+    <plugin id="JavaScript" />
+    <plugin id="Pythonid" />
+    <plugin id="com.intellij.database" />
+    <plugin id="com.intellij.python.django" />
+    <plugin id="dev.nx.console" />
+    <plugin id="intellij.nextjs" />
+    <plugin id="org.jetbrains.junie" />
+    <plugin id="org.jetbrains.kotlin" />
+  </component>
+</project>

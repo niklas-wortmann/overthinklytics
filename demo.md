@@ -74,6 +74,8 @@ TODO: ADD ME
 - VCS integration
   - Local history to show you can recover pre-AI edits.
   - Shelves or partial commits to review only the misaligned chunk.
+- Junie GitHub Agent (still in beta)
+  - https://github.com/niklas-wortmann/overthinklytics/pull/9
 
 ---
 
