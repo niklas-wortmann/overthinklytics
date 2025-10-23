@@ -86,64 +86,45 @@ Next.js API path
 ## Scenario B — Intelligent Development Environment (IDE) with DB Plugin + AI
 
 ### Story
-Support asks for clearer insights by device and OS. In one JetBrains environment, you add `device_id` and `os` to the device-share table via the Database tool, validate, and apply. You thread those fields through Kotlin services/DTOs (default `os = "unknown"` when missing) and accept quick refactorings. In the Next.js UI, you pass optional device/OS filters and let TypeScript quick‑fixes propagate types. You run end‑to‑end and use AI to summarize risks (null handling, defaults, indexing on `os, device_id`).
-
-### What we’ll touch in the repo
-- Database: Prisma/SQLite demo DB at `prisma/dev.db` (seeded via scripts in README)
-- Kotlin backend: `apps/kotlin-backend/...`
-- Django backend: `apps/django-backend/django_backend/...`
-- Next.js API (optional): `apps/overthinklytics/src/app/api/...`
-- Next.js frontend: `apps/overthinklytics/...`
-- Run configurations: “Kotlin Demo”, “Next Demo” (or per‑app Nx scripts)
+Support asks for clearer insights by device and OS. In one JetBrains environment, you add `os` to the device-share table via the Database tool, validate, and apply. You thread those fields through Kotlin services/DTOs (default `os = "unknown"` when missing) and accept quick refactorings. In the Next.js UI, you pass optional device/OS filters and let TypeScript quick‑fixes propagate types. You run end‑to‑end and use AI to summarize risks (null handling, defaults, indexing on `os, device_id`).
 
 ### Workflow (step by step)
 1) Explore the current schema and data (common)
    - Open the Database tool window; connect to `prisma/dev.db`.
-   - Browse tables and DDL. Ask AI: “Suggest how to add `os` to the device share model.”
+   - Browse tables and DDL. Ask AI: “write the db script to add os to the device share model ”
 
 Then follow one of the backend paths:
 
-Kotlin/Spring path (TODO: Dry-run)
+Kotlin/Spring path
 2) Plan and apply the schema change
    - In the DB console, draft and apply:
      - `ALTER TABLE DeviceShare ADD COLUMN os TEXT;`
    - Refresh DB tree; inspect sample rows.
 3) Propagate through Kotlin backend
-   - Update DTOs and queries to include `os`
-4) Wire into Next.js frontend
-   - Add `os` to client calls; accept TS quick‑fixes to propagate types.
-5) Run end‑to‑end
-   - Use “Kotlin Demo” to start backend + frontend. Visit `http://localhost:3000/dashboard`.
-6) Review
-   - Run tests; Inspect Code; ask AI for risk summary (null/defaults, indexing).
+   - Update DTOs and queries to include `os` (apps/kotlin-backend/src/main/kotlin/com/overthinklytics/analytics/entity/DeviceShareEntity.kt)
+4) Review
+  - check device-share API endpoint to make sure it includes `os` in the body
 
-Python/Django path (TODO: Dry-run)
+Python/Django path
 2) Plan and apply the schema change
-   - Apply the same SQL in the DB console to `events` (or adjust to your Django model/table name).
+  - In the DB console, draft and apply:
+    - `ALTER TABLE DeviceShare ADD COLUMN os TEXT;`
+  - Refresh DB tree; inspect sample rows.
 3) Propagate through Django backend
-   - Update serializers/views/services to accept optional `os`.
-   - Default `os` to `"unknown"` if missing; surface filters in the endpoint.
-   - Add unit tests in `apps/django-backend/django_backend/tests/test_analytics.py`.
-   - Run with `cd apps/django-backend && uv run python manage.py test`.
-4) Wire into Next.js frontend
-   - Ensure the frontend calls include optional `deviceId`/`os` when Django is selected.
-5) Run end‑to‑end
-   - Start Django (`uv run manage.py runserver`) + Next.js (“Next Demo”). Visit `/dashboard`.
-6) Review
-   - Use AI Assistant to summarize changes and potential risks.
+   - update model (`os = models.TextField(null=True, blank=True)`)
+   - update serializer (`os = serializers.CharField(allow_null=True, required=False)`)
+4) Review
+  - check device-share API endpoint to make sure it includes `os` in the body
 
 Next.js API path (TODO: Dry-run)
 2) Plan and apply the schema change
    - Apply the same SQL in the DB console; Update the Schema Next.js API will read these fields directly.
-3) Implement/adjust API route
-   - In `apps/overthinklytics/src/app/api/analytics/route.ts`, include `os` in queries/aggregation; default `os` to `"unknown"`.
-   - Add Vitest/Jest tests for device/OS filters.
-4) Wire into Next.js frontend
-   - Since backend = Next.js, client calls hit `/api/...`; add optional filters and propagate TS types.
-5) Run end‑to‑end
-   - Use “Next Demo” to serve the app; open `/dashboard` and try device/OS filters.
-6) Review
-   - Ask AI to propose indexes (e.g., on `(os, device_id)`) and edge cases.
+3) Update the `schema.prisma`
+   - add `  os           String?` to the DeviceShare model.
+4) Wire into Next.js api
+   - add `os: r.os` to the row mapping
+5) Review
+   - check device-share API endpoint to make sure it includes `os` in the body
 
 ### Surround scenarios/features to sprinkle in
 - Database plugin
