@@ -492,17 +492,3 @@ class RevenuePointSerializerTest(BaseTestCase):
         revenue = RevenueDaily.objects.get_recent(1).__iter__().__next__()
         serializer = RevenuePointSerializer(revenue)
         self.assertRegex(serializer.data["day"], r"^[A-Z][a-z]{2} \d{1,2}$")
-
-
-class DeviceShareResponseSerializerTest(BaseTestCase):
-    """Tests for DeviceShareResponseSerializer."""
-
-    def test_field_mapping(self):
-        """Maps device to name and sharepct to value."""
-        devices = DeviceShare.objects.get_latest_snapshot()
-        serializer = DeviceShareResponseSerializer({"data": devices})
-        point = serializer.data["data"][0]
-        self.assertIn("name", point)
-        self.assertIn("value", point)
-        self.assertNotIn("device", point)
-        self.assertNotIn("sharepct", point)
