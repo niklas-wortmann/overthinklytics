@@ -126,6 +126,9 @@ Next.js API path (TODO: Dry-run)
 5) Review
    - check device-share API endpoint to make sure it includes `os` in the body
 
+### Important
+In case of emergency the solution has been pushed to the `scenario-2-complete` branch.
+
 ### Surround scenarios/features to sprinkle in
 - Database plugin
   - Diff DDL before/after. Generate SQL script from model changes. Diagram view of tables.
