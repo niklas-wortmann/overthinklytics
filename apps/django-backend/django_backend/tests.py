@@ -125,7 +125,7 @@ class BaseTestCase(TestCase):
             )
 
         # Device share data (two snapshots)
-        devices = [("desktop", 45.5), ("mobile", 40.2), ("tablet", 14.3)]
+        devices = [("Desktop", 45.5), ("Mobile", 40.2), ("Tablet", 14.3)]
         for device, share in devices:
             DeviceShare.objects.create(
                 snapshotdate=1704441600000, device=device, sharepct=share

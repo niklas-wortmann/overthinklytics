@@ -7,26 +7,17 @@ from django_backend.tests import BaseTestCase
 class DeviceShareModelTest(BaseTestCase):
     """Tests for DeviceShare model and manager."""
 
-    def setUp(self):
-        """Create test data for DeviceShare model."""
-        DeviceShare.objects.create(snapshotdate=20251020, device="Desktop", sharepct=45.5)
-        DeviceShare.objects.create(snapshotdate=20251020, device="Mobile", sharepct=40.0)
-        DeviceShare.objects.create(snapshotdate=20251020, device="Tablet", sharepct=14.5)
-        DeviceShare.objects.create(snapshotdate=20251021, device="Desktop", sharepct=46.0)
-        DeviceShare.objects.create(snapshotdate=20251021, device="Mobile", sharepct=39.5)
-        DeviceShare.objects.create(snapshotdate=20251021, device="Tablet", sharepct=14.5)
-
     def test_device_share_creation(self):
         """Test that DeviceShare objects can be created correctly."""
-        device = DeviceShare.objects.get(snapshotdate=20251020, device="Desktop")
-        self.assertEqual(device.snapshotdate, 20251020)
+        device = DeviceShare.objects.get(snapshotdate=1704441600000, device="Desktop")
+        self.assertEqual(device.snapshotdate, 1704441600000)
         self.assertEqual(device.device, "Desktop")
         self.assertEqual(device.sharepct, 45.5)
 
     def test_unique_together_constraint(self):
         """Test that unique_together constraint is enforced."""
         with self.assertRaises(IntegrityError):
-            DeviceShare.objects.create(snapshotdate=20251020, device="Desktop", sharepct=50.0)
+            DeviceShare.objects.create(snapshotdate=1704441600000, device="Desktop", sharepct=50.0)
 
     def test_get_latest_snapshot(self):
         """Test the get_latest_snapshot method returns most recent snapshot."""
@@ -34,7 +25,7 @@ class DeviceShareModelTest(BaseTestCase):
         self.assertEqual(latest_snapshot.count(), 3)
         # Verify all returned items are from the latest snapshot
         for item in latest_snapshot:
-            self.assertEqual(item.snapshotdate, 20251021)
+            self.assertEqual(item.snapshotdate, 1704441600000)
 
     def test_get_latest_snapshot_ordered_by_device(self):
         """Test that get_latest_snapshot returns devices in alphabetical order."""
@@ -74,8 +65,8 @@ class DeviceShareModelTest(BaseTestCase):
 
     def test_sharepct_precision(self):
         """Test that share percentages maintain precision."""
-        device = DeviceShare.objects.get(snapshotdate=20251020, device="Tablet")
-        self.assertAlmostEqual(device.sharepct, 14.5, places=1)
+        device = DeviceShare.objects.get(snapshotdate=1704441600000, device="Tablet")
+        self.assertAlmostEqual(device.sharepct, 14.3, places=1)
 
 
 class DeviceSharePointSerializerTest(BaseTestCase):

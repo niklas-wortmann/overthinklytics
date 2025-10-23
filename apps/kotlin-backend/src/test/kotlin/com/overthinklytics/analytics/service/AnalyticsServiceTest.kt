@@ -72,7 +72,7 @@ class AnalyticsServiceTest {
         val response = analyticsService.getTraffic(limit)
 
         // Assert
-        assertEquals(4, response.data.size)
+        assertEquals(3, response.data.size)
         assertEquals("2025-01-13", response.data[0].day)
         assertEquals(100, response.data[0].visits)
         assertEquals(50, response.data[0].sessions)

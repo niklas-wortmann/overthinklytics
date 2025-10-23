@@ -18,7 +18,7 @@ export async function GET(req: Request) {
     });
 
     const data = rows.map((r) => ({ name: r.device, value: r.sharePct }));
-    return NextResponse.json({ data, snapshotDate: snapshotDate?.toISOString() }, { status: 200 });
+    return NextResponse.json({ data, snapshotDate: snapshotDate instanceof Date && !isNaN(snapshotDate.getTime()) ? snapshotDate.toISOString() : undefined }, { status: 200 });
   } catch (e: any) {
     return NextResponse.json({ error: e?.message || 'Failed to load device share' }, { status: 500 });
   }
