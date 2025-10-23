@@ -71,10 +71,11 @@ Backend prerequisites (optional, depending on which backend you run):
 - In the "SDK" dropdown, select the SDK you just created: Python 3.13 virtualenv at …overthinklytics/apps/django-backend/.venv
 - Click Apply
 
-5. Verify and finish
+5. Enable Django Support 
 
-- Click OK to close the Project Structure dialog
-- Open any Python file in apps/django-backend - you should see no interpreter warnings
+- Settings -> Languages & Frameworks -> Django ... click on "enable Django support"
+  - Django project root: ...overthinklytics/apps/django-backend
+  - Settings: ...django_overthinglytics/settings.py
 
 ## Quick start checklist
 1) Clone and install dependencies
