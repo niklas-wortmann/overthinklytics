@@ -76,6 +76,8 @@ Backend prerequisites (optional, depending on which backend you run):
 - Settings -> Languages & Frameworks -> Django ... click on "enable Django support"
   - Django project root: ...overthinklytics/apps/django-backend
   - Settings: ...django_overthinglytics/settings.py
+- Right-click on apps/django-backend/ directory -> select Mark Directory as -> Sources Root. The folder should turn blue/highlighted.
+  - Try running a test via the gutter to confirm.
 
 ## Quick start checklist
 1) Clone and install dependencies
