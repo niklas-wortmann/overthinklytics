@@ -17,7 +17,7 @@ export async function GET(req: Request) {
       orderBy: { device: 'asc' },
     });
 
-    const data = rows.map((r) => ({ name: r.device, value: r.sharePct }));
+    const data = rows.map((r) => ({ name: r.device, value: r.sharePct, os: r.os }));
     return NextResponse.json({ data, snapshotDate: snapshotDate?.toISOString() }, { status: 200 });
   } catch (e: any) {
     return NextResponse.json({ error: e?.message || 'Failed to load device share' }, { status: 500 });

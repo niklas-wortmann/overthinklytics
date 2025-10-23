@@ -97,6 +97,7 @@ class DeviceSharePointSerializer(serializers.Serializer):
 
     name = serializers.CharField(source="device")
     value = serializers.FloatField(source="sharepct")
+    os = serializers.CharField(allow_null=True, required=False)
 
 
 class DeviceShareResponseSerializer(serializers.Serializer):

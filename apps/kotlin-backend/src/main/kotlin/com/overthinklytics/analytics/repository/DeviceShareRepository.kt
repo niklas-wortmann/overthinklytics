@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface DeviceShareRepository : JpaRepository<DeviceShareEntity, DeviceShareId> {
-    fun findTopByOrderById_SnapshotDateDesc(): DeviceShareEntity?
-    fun findById_SnapshotDateOrderById_DeviceAsc(snapshotDate: String): List<DeviceShareEntity>
+    fun findTopByOrderByIdSnapshotDateDesc(): DeviceShareEntity?
+    fun findByIdSnapshotDateOrderByIdDeviceAsc(snapshotDate: String): List<DeviceShareEntity>
 }

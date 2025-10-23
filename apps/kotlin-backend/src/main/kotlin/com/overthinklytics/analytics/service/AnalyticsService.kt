@@ -63,11 +63,9 @@ class AnalyticsService(
     }
 
     fun getDeviceShare(): DeviceShareResponse {
-        val top = deviceShareRepo.findTopByOrderById_SnapshotDateDesc() ?: return DeviceShareResponse(emptyList())
-        val snapshot = top.id.snapshotDate
-        val rows = deviceShareRepo.findById_SnapshotDateOrderById_DeviceAsc(snapshot)
+        val rows = deviceShareRepo.findAll()
         return DeviceShareResponse(
-            data = rows.map { DeviceSharePoint(name = it.id.device, value = it.sharePct) }
+            data = rows.map { DeviceSharePoint(name = it.id.device, value = it.sharePct, os = it.os) }
         )
     }
 

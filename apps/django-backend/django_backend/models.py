@@ -169,6 +169,7 @@ class DeviceShare(models.Model):
     snapshotdate = models.BigIntegerField(db_column="snapshotDate")
     device = models.TextField()
     sharepct = models.FloatField(db_column="sharePct")
+    os = models.TextField(null=True, blank=True)
 
     objects = DeviceShareManager()
 

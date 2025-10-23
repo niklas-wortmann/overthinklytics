@@ -42,7 +42,8 @@ data class RevenueResponse(
 
 data class DeviceSharePoint(
     val name: String,
-    val value: Double
+    val value: Double,
+    val os: String?
 )
 
 data class DeviceShareResponse(

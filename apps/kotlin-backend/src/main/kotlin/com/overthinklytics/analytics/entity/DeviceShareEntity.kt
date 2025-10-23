@@ -1,6 +1,7 @@
 package com.overthinklytics.analytics.entity
 
 import jakarta.persistence.*
+import org.hibernate.annotations.ColumnDefault
 
 @Embeddable
 open class DeviceShareId() {
@@ -22,4 +23,8 @@ open class DeviceShareEntity() {
 
     @Column(name = "sharePct", nullable = false)
     open var sharePct: Double = 0.0
+
+
+    @Column(name = "os", length = 255)
+    open var os: String = ""
 }
