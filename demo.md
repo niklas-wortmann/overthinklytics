@@ -14,32 +14,17 @@ Tip: Keep the JetBrains AI Assistant panel open and the Database tool window doc
 ## Scenario A — AI Misalignment Debt
 
 ### Story
-You shipped fast with AI scaffolding a small analytics endpoint and tests. 
-A week later, guardrail tests expose a mismatch: the AI treated the reporting window as end-inclusive and counted internal “test” events as billable. 
-One test passes that shouldn’t; another fails. A quick debug session confirms the off-by-one and filter gap. 
-You extract and rename the intent (`isBillableEvent`), fix the predicate (end is exclusive; exclude test/internal), 
-update tests, and commit—the misalignment debt is paid down.
+You had to hit a deadline, so you were a little sloppy on writing tests. But after the release you try to make up for it by writing some tests. 
+But testing isn't fun, so you decide to have them generated via AI, and while they look fine on the first glance, there are subtle errors that you need to fix.
 
-
-
-### What we’ll touch in the repo
-- Kotlin backend: `apps/kotlin-backend/src/main/kotlin/com/overthinklytics/analytics/` (e.g., `AnalyticsController.kt`, `AnalyticsService.kt`)
-- Django backend (Python): `apps/django-backend/django_backend/...`
-- Next.js API (optional): create or use a minimal handler under `apps/overthinklytics/src/app/api/...`
-- Next.js frontend (optional glance): `apps/overthinklytics`
-- Tests per tech:
-  - Kotlin: `apps/kotlin-backend/src/test/kotlin/...`
-  - Django: `apps/django-backend/**/tests.py` or `tests/` package; run via `uv run manage.py test`
-  - Next.js: component/API tests via Vitest/Jest in `apps/overthinklytics/src/**/__tests__/**`
-
-### Workflow (step by step) TODO: Add Claude Agent and create Claude Rules
+### Workflow (step by step)
 
 Kotlin/Spring path
 1) Open the service code
    - Navigate to `apps/kotlin-backend/src/main/kotlin/com/overthinklytics/analytics/service/AnalyticsService.kt`.
    - Use Code Vision/Structure to explain responsibilities.
 2) Ask AI to generate unit tests
-   - Invoke JetBrains AI Assistant on `AnalyticsService` → “Write unit tests… Kotlin + JUnit 5.” (TODO check in example test)
+   - Invoke JetBrains AI Assistant on `AnalyticsService` → “Write unit tests… Kotlin + JUnit 5.” (fallback with a failing test is checked in with git tag TODO add name here)
 3) Run and debug
    - Run tests; observe mismatch. Debug with breakpoints, Watches, Smart Step Into.
 5) Fix misalignment
@@ -47,21 +32,31 @@ Kotlin/Spring path
 
 Python/Django path (TODO dry-run)
 1) Open the view/service code
-   - Navigate to your analytics view/service in `apps/django-backend/django_backend/...` (e.g., a DRF view or service function handling event aggregation).
+   - Navigate to your device share model in `apps/django-backend/django_backend/models.py` 
 2) Ask AI to generate unit tests
-   - With the target function/class selected, ask AI: “Write concise Django unit tests (pytest/unittest) for empty input, off-by-one window, and category filters.”
+   - With the target function/class selected, use generate unit test feature
 3) Create the test file
-   - Save as `apps/django-backend/django_backend/tests/test_analytics.py` (or within an existing app’s `tests.py`).
+   - Save as `apps/django-backend/tests/test_deve_share.py` (should be done by AIA).
 4) Run and debug
-   - Terminal: `cd apps/django-backend && uv run python manage.py test`.
-   - Use the IDE test runner and Debug to step through; set breakpoints in the view/service.
+   - Use the IDE test runner and Debug to step through; set breakpoints in the test/model.
 5) Fix misalignment
-   - Extract a helper (e.g., `is_billable_event`) in Python; enforce end-exclusive window and exclude `test/internal`.
+   - Couple failing tests in DeviceShareModelTest (wrong assertions can be confirmed with debugging tools)
 6) Re-run and commit
    - Tests pass; commit the fix with a clear message.
 
 Next.js API path
-TODO: ADD ME
+1) Open the view/service code
+  - Navigate to your device share api in `apps/overthinklytics/src/app/api/analytics/device-share/route.ts`
+2) Ask AI to generate unit tests
+  - With the target function/class selected, use generate unit test feature
+3) Create the test file
+  - Save as `apps/overthinklytics/src/app/api/analytics/device-share/route.test.ts` (should be done by AIA).
+4) Run and debug
+  - Use the IDE test runner and Debug to step through; set breakpoints in the test/api route.
+5) Fix misalignment
+  - a failing tests in GET /analytics/device-share (wrong assertions can be confirmed with debugging tools)
+6) Re-run and commit
+  - Tests pass; commit the fix with a clear message.
 
 ### Surround scenarios/features to sprinkle in
 - AI Assistant
@@ -70,15 +65,15 @@ TODO: ADD ME
 - Testing ergonomics
   - Gutter run icons, parameterized test templates, live templates for test data builders.
   - Code coverage highlighting and the Coverage tool window.
-- Debugger superpowers
+- Debugger 
   - Evaluate Expression, Watches, Inline values, Smart Step Into, Method breakpoints.
-  - “Drop frame” to re-run without restarting.
 - Code correctness aids
   - Intentions and quick-fixes for nullability and data classes.
   - Structural Search & Replace (SSR) to fix a pattern across files.
 - VCS integration
   - Local history to show you can recover pre-AI edits.
   - Shelves or partial commits to review only the misaligned chunk.
+- Structure View
 - Junie GitHub Agent (still in beta)
   - https://github.com/niklas-wortmann/overthinklytics/pull/9
 
