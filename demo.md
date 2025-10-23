@@ -25,10 +25,12 @@ Kotlin/Spring path
    - Use Code Vision/Structure to explain responsibilities.
 2) Ask AI to generate unit tests
    - Invoke JetBrains AI Assistant on `AnalyticsService` → “Write unit tests… Kotlin + JUnit 5.” (fallback with a failing test is checked in with git tag TODO add name here)
-3) Run and debug
+3) Create the test with AI generate test feature 
+4) Checkout `scenario-1-failing-tests`
+5) Run and debug `AnalyticsServiceTest`
    - Run tests; observe mismatch. Debug with breakpoints, Watches, Smart Step Into.
-5) Fix misalignment
-6) Re-run and commit
+6) Fix misalignment
+7) Re-run and commit
 
 Python/Django path (TODO dry-run)
 1) Open the view/service code
@@ -37,11 +39,12 @@ Python/Django path (TODO dry-run)
    - With the target function/class selected, use generate unit test feature
 3) Create the test file
    - Save as `apps/django-backend/tests/test_deve_share.py` (should be done by AIA).
-4) Run and debug
+4) Checkout `scenario-1-failing-tests`
+5) Run and debug `apps/django-backend/tests/test_deve_share.py`
    - Use the IDE test runner and Debug to step through; set breakpoints in the test/model.
-5) Fix misalignment
+6) Fix misalignment
    - Couple failing tests in DeviceShareModelTest (wrong assertions can be confirmed with debugging tools)
-6) Re-run and commit
+7) Re-run and commit
    - Tests pass; commit the fix with a clear message.
 
 Next.js API path
@@ -51,11 +54,12 @@ Next.js API path
   - With the target function/class selected, use generate unit test feature
 3) Create the test file
   - Save as `apps/overthinklytics/src/app/api/analytics/device-share/route.test.ts` (should be done by AIA).
-4) Run and debug
+4) Checkout `scenario-1-failing-tests`
+5) Run and debug
   - Use the IDE test runner and Debug to step through; set breakpoints in the test/api route.
-5) Fix misalignment
+6) Fix misalignment
   - a failing tests in GET /analytics/device-share (wrong assertions can be confirmed with debugging tools)
-6) Re-run and commit
+7) Re-run and commit
   - Tests pass; commit the fix with a clear message.
 
 ### Surround scenarios/features to sprinkle in
