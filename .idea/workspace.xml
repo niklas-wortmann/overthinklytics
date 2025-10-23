@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="AutomaticModuleUnloader">
+    <loaded-modules>
+      <module name="django-backend" />
+      <module name="overthinklytics.apps.kotlin-backend" />
+      <module name="overthinklytics.apps.kotlin-backend.test" />
+      <module name="overthinklytics" />
+      <module name="overthinklytics.apps" />
+      <module name="overthinklytics.apps.kotlin-backend.main" />
+    </loaded-modules>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a4cabf9-c87c-4443-9c8f-fa865fe25c7d" name="Changes" comment="rea">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/apps/kotlin-backend">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/kotlin-backend">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/apps/kotlin-backend">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/apps">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="overthinklytics" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="overthinklytics" type="f1a62948:ProjectNode" />
+                <item name="apps" type="2d1252cf:ModuleNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/6.2.11/b634854063164c2d42e757f223183aa27806ef7e/spring-tx-6.2.11-sources.jar!/org/springframework/dao/InvalidDataAccessResourceUsageException.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/.pnpm/@prisma+client@5.22.0_prisma@5.22.0/node_modules/@prisma/client/default.d.ts" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
+}</component>
+  <component name="McpProjectServerCommands">
+    <McpServerCommand>
+      <option name="enabled" value="true" />
+      <option name="name" value="nx-mcp" />
+      <option name="programPath" value="npx" />
+      <option name="arguments" value="-y nx-mcp@latest /Users/willvincent/Sites/demos/overthinklytics" />
+      <option name="workingDirectory" value="" />
+      <envs />
+    </McpServerCommand>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="33pzOzkyXi0iqq32RBGLjwkTyAs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Django Server.django backend.executor&quot;: &quot;Run&quot;,
+    &quot;Django tests.Test: django_backend.tests.BaseTestCase.executor&quot;: &quot;Run&quot;,
+    &quot;Django tests.Test: django_backend.tests.HealthEndpointTest.test_health_check.executor&quot;: &quot;Run&quot;,
+    &quot;Django tests.Test: django_backend.tests.RevenueEndpointTest.executor&quot;: &quot;Run&quot;,
+    &quot;Django tests.Test: django_backend.tests.TrafficEndpointTest.test_ascending_order.executor&quot;: &quot;Run&quot;,
+    &quot;Django tests.Test: django_backend.tests.TrafficEndpointTest.test_date_format.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AnalyticsControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AnalyticsServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AnalyticsServiceTest.should return traffic data sorted by ascending date.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.Build kotlin-backend.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build overthinklytics.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.KpiRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RevenueRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RevenueRepositoryTest.findRecent returns empty when no rows.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TrafficRepositoryTest.findRecent returns empty list when no data exists.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.overthinklytics [bootRun].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.overthinklytics [bootTestRun].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.overthinklytics [buildNeeded].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.overthinklytics [test].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.overthinklytics:apps:kotlin-backend [bootRun].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.overthinklytics:apps:kotlin-backend [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.overthinklytics:apps:kotlin-backend [test].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.overthinklytics:kotlin-backend [projects].executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.DemoApplication (1) | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.DemoApplication | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.DemoApplication | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.Kotlin Backend | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.overthinklytics-endpoints | #1.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Nx.:apps:kotlin-backend:test.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.@overthinklytics/overthinklytics:dev.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.@overthinklytics/overthinklytics:start.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.@overthinklytics/overthinklytics:test.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.@overthinklytics/overthinklytics:test:ui.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.django-backend:build.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.django-backend:serve.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.django-backend:test.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.frontend django.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.frontend kotlin.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.frontend.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.kotlin-backend:bootRun.executor&quot;: &quot;Run&quot;,
+    &quot;Nx.kotlin-backend:test-all.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DemoApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Kotlin Backend.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.DashboardPage.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.DashboardPage.loads and displays KPI cards and chart titles on success.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.getUserIdFromRequest.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForEAPUsers.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jan-niklaswortmann/IdeaProjects/overthinklytics&quot;,
+    &quot;llm.McpServerEditPanel.switcher&quot;: &quot;1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;npm.db:seed.executor&quot;: &quot;Run&quot;,
+    &quot;npm.prisma:generate.executor&quot;: &quot;Run&quot;,
+    &quot;npm.prisma:migrate.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/willvincent/Sites/demos/overthinklytics/node_modules/prettier&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.23778802&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.301&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;dev.nx.console.project_details_files&quot;: [
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/package.json&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/tsconfig.json&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/playwright.config.ts&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/eslint.config.mjs&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics/package.json&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics/next.config.js&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics/eslint.config.mjs&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/kotlin-backend/project.json&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/kotlin-backend/package.json&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/kotlin-backend/build.gradle&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/build.gradle&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/django-backend/project.json&quot;,
+      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/django-backend/package.json&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/apps/overthinklytics/src/app/dashboard/analyticsTitle.tsx" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django tests.Test: django_backend.tests.HealthEndpointTest.test_health_check">
+    <configuration name="Test: django_backend.tests.BaseTestCase" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="django-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="django_backend.tests.BaseTestCase" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: django_backend.tests.HealthEndpointTest.test_health_check" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="django-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="django_backend.tests.HealthEndpointTest.test_health_check" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: django_backend.tests.RevenueEndpointTest" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="django-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="django_backend.tests.RevenueEndpointTest" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: django_backend.tests.TrafficEndpointTest.test_ascending_order" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="django-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="django_backend.tests.TrafficEndpointTest.test_ascending_order" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: django_backend.tests.TrafficEndpointTest.test_date_format" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="django-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="django_backend.tests.TrafficEndpointTest.test_date_format" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="frontend django" type="NxRunConfigurationType">
+      <option name="nx-projects" value="@overthinklytics/overthinklytics" />
+      <option name="nx-targets" value="dev" />
+      <option name="nx-target-configuration" value="" />
+      <envs />
+      <option name="arguments" value="" />
+      <method v="2">
+        <option name="LaunchBrowser.Before.Run" url="http://localhost:3000/dashboard?backend=django" />
+      </method>
+    </configuration>
+    <configuration name="frontend kotlin" type="NxRunConfigurationType">
+      <option name="nx-projects" value="@overthinklytics/overthinklytics" />
+      <option name="nx-targets" value="dev" />
+      <option name="nx-target-configuration" value="" />
+      <envs />
+      <option name="arguments" value="" />
+      <method v="2">
+        <option name="LaunchBrowser.Before.Run" url="http://localhost:3000/dashboard?backend=kotlin" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Compound.Django Demo " />
+      <item itemvalue="Compound.Kotlin Demo" />
+      <item itemvalue="Compound.Next Demo" />
+      <item itemvalue="Django Server.django backend" />
+      <item itemvalue="Django tests.Test: django_backend.tests.HealthEndpointTest.test_health_check" />
+      <item itemvalue="Django tests.Test: django_backend.tests.RevenueEndpointTest" />
+      <item itemvalue="Django tests.Test: django_backend.tests.TrafficEndpointTest.test_ascending_order" />
+      <item itemvalue="Django tests.Test: django_backend.tests.TrafficEndpointTest.test_date_format" />
+      <item itemvalue="Django tests.Test: django_backend.tests.BaseTestCase" />
+      <item itemvalue="Nx.frontend" />
+      <item itemvalue="Nx.frontend django" />
+      <item itemvalue="Nx.frontend kotlin" />
+      <item itemvalue="Spring Boot.Kotlin Backend" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Django tests.Test: django_backend.tests.HealthEndpointTest.test_health_check" />
+        <item itemvalue="Django tests.Test: django_backend.tests.RevenueEndpointTest" />
+        <item itemvalue="Django tests.Test: django_backend.tests.TrafficEndpointTest.test_ascending_order" />
+        <item itemvalue="Django tests.Test: django_backend.tests.TrafficEndpointTest.test_date_format" />
+        <item itemvalue="Django tests.Test: django_backend.tests.BaseTestCase" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a4cabf9-c87c-4443-9c8f-fa865fe25c7d" name="Changes" comment="" />
+      <created>1760028774159</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760028774159</updated>
+      <workItem from="1760028774824" duration="1064000" />
+      <workItem from="1760030621273" duration="391000" />
+      <workItem from="1760031016046" duration="27590000" />
+      <workItem from="1760389194125" duration="11718000" />
+      <workItem from="1760465628988" duration="401000" />
+      <workItem from="1760466129495" duration="254000" />
+      <workItem from="1760466561053" duration="5308000" />
+      <workItem from="1760536598351" duration="6074000" />
+      <workItem from="1760559238566" duration="7004000" />
+      <workItem from="1760961057190" duration="7984000" />
+      <workItem from="1760981303171" duration="35322000" />
+      <workItem from="1761158609366" duration="5000" />
+      <workItem from="1761163838485" duration="443000" />
+      <workItem from="1761181521427" duration="21000" />
+      <workItem from="1761181548088" duration="439000" />
+      <workItem from="1761182014085" duration="710000" />
+      <workItem from="1761244206625" duration="2358000" />
+      <workItem from="1761249982860" duration="524000" />
+      <workItem from="1761250528596" duration="318000" />
+      <workItem from="1761250850804" duration="377000" />
+      <workItem from="1761251232760" duration="7000" />
+      <workItem from="1761251538554" duration="408000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnloadedModulesList">
+    <module name="demo" />
+    <module name="demo.main" />
+    <module name="demo.test" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add test for AnalyticsServiceTest.kt" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test for AnalyticsServiceTest.kt" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/overthinklytics$Test__django_backend_tests_TrafficEndpointTest_test_date_format.coverage" NAME="Test: django_backend.tests.TrafficEndpointTest.test_date_format Coverage Results" MODIFIED="1761181767715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/overthinklytics$Test__django_backend_tests_TrafficEndpointTest_test_ascending_order.coverage" NAME="Test: django_backend.tests.TrafficEndpointTest.test_ascending_order Coverage Results" MODIFIED="1761181897902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/overthinklytics$Test__django_backend_tests_HealthEndpointTest_test_health_check.coverage" NAME="Test: django_backend.tests.HealthEndpointTest.test_health_check Coverage Results" MODIFIED="1761182064866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/overthinklytics$Test__django_backend_tests_RevenueEndpointTest.coverage" NAME="Test: django_backend.tests.RevenueEndpointTest Coverage Results" MODIFIED="1761182019243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/overthinklytics$tests.coverage" NAME="tests Coverage Results" MODIFIED="1761180936668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/django-backend/django_backend" />
+    <SUITE FILE_PATH="coverage/overthinklytics$Test__django_backend_tests_BaseTestCase.coverage" NAME="Test: django_backend.tests.BaseTestCase Coverage Results" MODIFIED="1761181756738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>

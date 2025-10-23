@@ -48,6 +48,34 @@ Backend prerequisites (optional, depending on which backend you run):
 - No external database required for local development
   - SQLite dev database is included in the repo at prisma/dev.db
 
+## Configure Python Interpreter in IntelliJ IDEA
+
+1. Ensure the virtual environment exists
+
+`cd apps/django-backend`
+`uv sync`
+
+2. Add the Python SDK
+
+- Go to File → Project Structure
+- In the left sidebar, click SDKs (under "Platform Settings")
+- Click the + button at the top
+- Select Add Python SDK from disk
+- For Environment, select Existing environment radio button
+- Click the folder icon next to “Python path” and navigate to: …/overthinklytics/apps/django-backend/.venv/bin/python
+- Click OK
+
+4. Set the SDK for your Project
+
+- In the left sidebar, click Project (under "Project Settings")
+- In the "SDK" dropdown, select the SDK you just created: Python 3.13 virtualenv at …overthinklytics/apps/django-backend/.venv
+- Click Apply
+
+5. Verify and finish
+
+- Click OK to close the Project Structure dialog
+- Open any Python file in apps/django-backend - you should see no interpreter warnings
+
 ## Quick start checklist
 1) Clone and install dependencies
    - pnpm install

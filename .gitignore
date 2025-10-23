@@ -9,7 +9,7 @@ out-tsc
 node_modules
 
 # IDEs and editors
-/.idea
+/.idea/*
 .project
 .classpath
 .c9/
@@ -60,6 +60,7 @@ build/
 **/.gradle/
 **/.venv/
 **/reports/
+!/.idea/misc.xml
 !/.idea/externalDependencies.xml
 !/.idea/data_source_mapping.xml
 
