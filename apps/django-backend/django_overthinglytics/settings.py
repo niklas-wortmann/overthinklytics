@@ -90,6 +90,9 @@ DATABASES = {
         'OPTIONS': {
             'init_command': 'PRAGMA foreign_keys=OFF;',
         },
+        'TEST': {
+            'MIRROR': 'default',
+        },
     }
 }
 
