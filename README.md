@@ -56,6 +56,11 @@ Backend prerequisites (optional, depending on which backend you run):
 `uv sync`
 `uv run manage.py test` runs the tests manually
 
+2. Enable Django plugin 
+- Settings -> Languages & Frameworks -> Django -> Enable Django support 
+  - Django project root: /apps/django-backend/ 
+  - Settings: /apps/django-backend/django_overthinglytics/settings.py
+
 2. Add the Python SDK
 
 - Go to File → Project Structure
