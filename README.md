@@ -54,6 +54,7 @@ Backend prerequisites (optional, depending on which backend you run):
 
 `cd apps/django-backend`
 `uv sync`
+`uv run manage.py test` runs the tests manually
 
 2. Add the Python SDK
 
@@ -65,13 +66,13 @@ Backend prerequisites (optional, depending on which backend you run):
 - Click the folder icon next to “Python path” and navigate to: …/overthinklytics/apps/django-backend/.venv/bin/python
 - Click OK
 
-4. Set the SDK for your Project
+3. Set the SDK for your Project
 
 - In the left sidebar, click Project (under "Project Settings")
 - In the "SDK" dropdown, select the SDK you just created: Python 3.13 virtualenv at …overthinklytics/apps/django-backend/.venv
 - Click Apply
 
-5. Enable Django Support 
+4. Enable Django Support 
 
 - Settings -> Languages & Frameworks -> Django ... click on "enable Django support"
   - Django project root: ...overthinklytics/apps/django-backend

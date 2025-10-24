@@ -15,12 +15,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a4cabf9-c87c-4443-9c8f-fa865fe25c7d" name="Changes" comment="rea">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/django-backend/django-backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/django-backend/django-backend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/overthinklytics.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +84,8 @@
   &quot;isOnboardingCommentShown&quot;: true
 }</component>
   <component name="McpProjectServerCommands">
-    <McpServerCommand>
+    <McpServerCommand sourceId="UserConfigurationSource">
+      <option name="allowedToolsNames" />
       <option name="enabled" value="true" />
       <option name="name" value="nx-mcp" />
       <option name="programPath" value="npx" />
@@ -101,115 +102,115 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Django Server.django backend.executor&quot;: &quot;Run&quot;,
-    &quot;Django tests.Test: django_backend.tests.BaseTestCase.executor&quot;: &quot;Run&quot;,
-    &quot;Django tests.Test: django_backend.tests.HealthEndpointTest.test_health_check.executor&quot;: &quot;Run&quot;,
-    &quot;Django tests.Test: django_backend.tests.RevenueEndpointTest.executor&quot;: &quot;Run&quot;,
-    &quot;Django tests.Test: django_backend.tests.TrafficEndpointTest.test_ascending_order.executor&quot;: &quot;Run&quot;,
-    &quot;Django tests.Test: django_backend.tests.TrafficEndpointTest.test_date_format.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.AnalyticsControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.AnalyticsServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.AnalyticsServiceTest.should return traffic data sorted by ascending date.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.Build kotlin-backend.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build overthinklytics.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.KpiRepositoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RevenueRepositoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RevenueRepositoryTest.findRecent returns empty when no rows.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TrafficRepositoryTest.findRecent returns empty list when no data exists.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.overthinklytics [bootRun].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.overthinklytics [bootTestRun].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.overthinklytics [buildNeeded].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.overthinklytics [test].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.overthinklytics:apps:kotlin-backend [bootRun].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.overthinklytics:apps:kotlin-backend [dependencies].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.overthinklytics:apps:kotlin-backend [test].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.overthinklytics:kotlin-backend [projects].executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.DemoApplication (1) | #2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.DemoApplication | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.DemoApplication | #2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.Kotlin Backend | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.overthinklytics-endpoints | #1.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Nx.:apps:kotlin-backend:test.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.@overthinklytics/overthinklytics:dev.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.@overthinklytics/overthinklytics:start.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.@overthinklytics/overthinklytics:test.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.@overthinklytics/overthinklytics:test:ui.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.django-backend:build.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.django-backend:serve.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.django-backend:test.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.frontend django.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.frontend kotlin.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.frontend.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.kotlin-backend:bootRun.executor&quot;: &quot;Run&quot;,
-    &quot;Nx.kotlin-backend:test-all.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DemoApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.Kotlin Backend.executor&quot;: &quot;Run&quot;,
-    &quot;Vitest.DashboardPage.executor&quot;: &quot;Run&quot;,
-    &quot;Vitest.DashboardPage.loads and displays KPI cards and chart titles on success.executor&quot;: &quot;Run&quot;,
-    &quot;Vitest.getUserIdFromRequest.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForEAPUsers.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jan-niklaswortmann/IdeaProjects/overthinklytics&quot;,
-    &quot;llm.McpServerEditPanel.switcher&quot;: &quot;1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;npm.db:seed.executor&quot;: &quot;Run&quot;,
-    &quot;npm.prisma:generate.executor&quot;: &quot;Run&quot;,
-    &quot;npm.prisma:migrate.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/willvincent/Sites/demos/overthinklytics/node_modules/prettier&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.23778802&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.301&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.django backend.executor": "Run",
+    "Django tests.Test: django_backend.tests.BaseTestCase.executor": "Run",
+    "Django tests.Test: django_backend.tests.HealthEndpointTest.test_health_check.executor": "Run",
+    "Django tests.Test: django_backend.tests.RevenueEndpointTest.executor": "Run",
+    "Django tests.Test: django_backend.tests.TrafficEndpointTest.test_ascending_order.executor": "Run",
+    "Django tests.Test: django_backend.tests.TrafficEndpointTest.test_date_format.executor": "Run",
+    "Gradle.AnalyticsControllerIntegrationTest.executor": "Run",
+    "Gradle.AnalyticsServiceTest.executor": "Run",
+    "Gradle.AnalyticsServiceTest.should return traffic data sorted by ascending date.executor": "Debug",
+    "Gradle.Build kotlin-backend.executor": "Run",
+    "Gradle.Build overthinklytics.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.KpiRepositoryTest.executor": "Run",
+    "Gradle.RevenueRepositoryTest.executor": "Run",
+    "Gradle.RevenueRepositoryTest.findRecent returns empty when no rows.executor": "Run",
+    "Gradle.TrafficRepositoryTest.findRecent returns empty list when no data exists.executor": "Run",
+    "Gradle.overthinklytics [bootRun].executor": "Run",
+    "Gradle.overthinklytics [bootTestRun].executor": "Run",
+    "Gradle.overthinklytics [buildNeeded].executor": "Run",
+    "Gradle.overthinklytics [test].executor": "Run",
+    "Gradle.overthinklytics:apps:kotlin-backend [bootRun].executor": "Run",
+    "Gradle.overthinklytics:apps:kotlin-backend [dependencies].executor": "Run",
+    "Gradle.overthinklytics:apps:kotlin-backend [test].executor": "Run",
+    "Gradle.overthinklytics:kotlin-backend [projects].executor": "Run",
+    "HTTP Request.All in generated-requests.executor": "Run",
+    "HTTP Request.DemoApplication (1) | #2.executor": "Run",
+    "HTTP Request.DemoApplication | #1.executor": "Run",
+    "HTTP Request.DemoApplication | #2.executor": "Run",
+    "HTTP Request.Kotlin Backend | #1.executor": "Run",
+    "HTTP Request.generated-requests | #2.executor": "Run",
+    "HTTP Request.generated-requests | #3.executor": "Run",
+    "HTTP Request.overthinklytics-endpoints | #1.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Nx.:apps:kotlin-backend:test.executor": "Run",
+    "Nx.@overthinklytics/overthinklytics:dev.executor": "Run",
+    "Nx.@overthinklytics/overthinklytics:start.executor": "Run",
+    "Nx.@overthinklytics/overthinklytics:test.executor": "Run",
+    "Nx.@overthinklytics/overthinklytics:test:ui.executor": "Run",
+    "Nx.django-backend:build.executor": "Run",
+    "Nx.django-backend:serve.executor": "Run",
+    "Nx.django-backend:test.executor": "Run",
+    "Nx.frontend django.executor": "Run",
+    "Nx.frontend kotlin.executor": "Run",
+    "Nx.frontend.executor": "Run",
+    "Nx.kotlin-backend:bootRun.executor": "Run",
+    "Nx.kotlin-backend:test-all.executor": "Run",
+    "Python.tests.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DemoApplication (1).executor": "Run",
+    "Spring Boot.DemoApplication.executor": "Run",
+    "Spring Boot.Kotlin Backend.executor": "Run",
+    "Vitest.DashboardPage.executor": "Run",
+    "Vitest.DashboardPage.loads and displays KPI cards and chart titles on success.executor": "Run",
+    "Vitest.getUserIdFromRequest.executor": "Run",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForEAPUsers.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics",
+    "llm.McpServerEditPanel.switcher": "1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.db:seed.executor": "Run",
+    "npm.prisma:generate.executor": "Run",
+    "npm.prisma:migrate.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/willvincent/Sites/demos/overthinklytics/node_modules/prettier",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.165",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.splitter.proportion": "0.301",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/Users/jan-niklaswortmann/IdeaProjects/overthinklytics/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;dev.nx.console.project_details_files&quot;: [
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/package.json&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/tsconfig.json&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/playwright.config.ts&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/eslint.config.mjs&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics/package.json&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics/next.config.js&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics/eslint.config.mjs&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/kotlin-backend/project.json&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/kotlin-backend/package.json&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/kotlin-backend/build.gradle&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/build.gradle&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/django-backend/project.json&quot;,
-      &quot;/Users/willvincent/Sites/demos/overthinklytics/apps/django-backend/package.json&quot;
+  "keyToStringList": {
+    "dev.nx.console.project_details_files": [
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/package.json",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/tsconfig.json",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/playwright.config.ts",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics-e2e/eslint.config.mjs",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics/package.json",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics/next.config.js",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/overthinklytics/eslint.config.mjs",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/kotlin-backend/project.json",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/kotlin-backend/package.json",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/kotlin-backend/build.gradle",
+      "/Users/willvincent/Sites/demos/overthinklytics/build.gradle",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/django-backend/project.json",
+      "/Users/willvincent/Sites/demos/overthinklytics/apps/django-backend/package.json"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -221,49 +222,7 @@
       <recent name="$PROJECT_DIR$/apps/overthinklytics/src/app/dashboard/analyticsTitle.tsx" />
     </key>
   </component>
-  <component name="RunManager" selected="Django tests.Test: django_backend.tests.HealthEndpointTest.test_health_check">
-    <configuration name="Test: django_backend.tests.BaseTestCase" type="DjangoTestsConfigurationType" temporary="true">
-      <module name="django-backend" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="django_backend.tests.BaseTestCase" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test: django_backend.tests.HealthEndpointTest.test_health_check" type="DjangoTestsConfigurationType" temporary="true">
-      <module name="django-backend" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="django_backend.tests.HealthEndpointTest.test_health_check" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Django tests.Test: django_backend.tests.RevenueEndpointTest.test_cents_to_dollars_conversion">
     <configuration name="Test: django_backend.tests.RevenueEndpointTest" type="DjangoTestsConfigurationType" temporary="true">
       <module name="django-backend" />
       <option name="ENV_FILES" value="" />
@@ -279,6 +238,48 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="TARGET" value="django_backend.tests.RevenueEndpointTest" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: django_backend.tests.RevenueEndpointTest.test_cents_to_dollars_conversion" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="django-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="django_backend.tests.RevenueEndpointTest.test_cents_to_dollars_conversion" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: django_backend.tests.RevenueEndpointTest.test_limit_validation" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="django-backend" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="django_backend.tests.RevenueEndpointTest.test_limit_validation" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
@@ -352,11 +353,11 @@
       <item itemvalue="Compound.Kotlin Demo" />
       <item itemvalue="Compound.Next Demo" />
       <item itemvalue="Django Server.django backend" />
-      <item itemvalue="Django tests.Test: django_backend.tests.HealthEndpointTest.test_health_check" />
       <item itemvalue="Django tests.Test: django_backend.tests.RevenueEndpointTest" />
+      <item itemvalue="Django tests.Test: django_backend.tests.RevenueEndpointTest.test_cents_to_dollars_conversion" />
+      <item itemvalue="Django tests.Test: django_backend.tests.RevenueEndpointTest.test_limit_validation" />
       <item itemvalue="Django tests.Test: django_backend.tests.TrafficEndpointTest.test_ascending_order" />
       <item itemvalue="Django tests.Test: django_backend.tests.TrafficEndpointTest.test_date_format" />
-      <item itemvalue="Django tests.Test: django_backend.tests.BaseTestCase" />
       <item itemvalue="Nx.frontend" />
       <item itemvalue="Nx.frontend django" />
       <item itemvalue="Nx.frontend kotlin" />
@@ -364,19 +365,16 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Django tests.Test: django_backend.tests.HealthEndpointTest.test_health_check" />
-        <item itemvalue="Django tests.Test: django_backend.tests.RevenueEndpointTest" />
-        <item itemvalue="Django tests.Test: django_backend.tests.TrafficEndpointTest.test_ascending_order" />
-        <item itemvalue="Django tests.Test: django_backend.tests.TrafficEndpointTest.test_date_format" />
-        <item itemvalue="Django tests.Test: django_backend.tests.BaseTestCase" />
+        <item itemvalue="Django tests.Test: django_backend.tests.RevenueEndpointTest.test_cents_to_dollars_conversion" />
+        <item itemvalue="Django tests.Test: django_backend.tests.RevenueEndpointTest.test_limit_validation" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
       </set>
     </attachedChunks>
   </component>
@@ -412,6 +410,13 @@
       <workItem from="1761250850804" duration="377000" />
       <workItem from="1761251232760" duration="7000" />
       <workItem from="1761251538554" duration="408000" />
+      <workItem from="1761323063011" duration="20000" />
+      <workItem from="1761323167486" duration="713000" />
+      <workItem from="1761323897735" duration="140000" />
+      <workItem from="1761324050997" duration="693000" />
+      <workItem from="1761324751074" duration="207000" />
+      <workItem from="1761324973779" duration="11000" />
+      <workItem from="1761324991505" duration="600000" />
     </task>
     <servers />
   </component>
