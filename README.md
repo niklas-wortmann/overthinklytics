@@ -55,35 +55,25 @@ Backend prerequisites (optional, depending on which backend you run):
 `cd apps/django-backend`
 `uv sync`
 `uv run manage.py test` runs the tests manually
+`rm -rf .idea` to remove the `.idea` directory if present 
 
-2. Enable Django plugin 
-- Settings -> Languages & Frameworks -> Django -> Enable Django support 
-  - Django project root: /apps/django-backend/ 
-  - Settings: /apps/django-backend/django_overthinglytics/settings.py
+2. Enable Django support
+- Settings -> Languages & Frameworks -> Django -> Enable Django Support
+  - specify project root: apps/django-backend/
+  - settings file: `django_overthinglytics/settings.py`
+    and settings file: `django_overthinglytics/settings.py`
+  - click Apply
 
-2. Add the Python SDK
+3. Configure Python interpreter
+- File -> Project Structure -> Project Settings/Project -> SDK -> Add SDK (Python SDK) -> Select Existing -> apps/django-backend/.venv/bin/python (Apply)
 
-- Go to File → Project Structure
-- In the left sidebar, click SDKs (under "Platform Settings")
-- Click the + button at the top
-- Select Add Python SDK from disk
-- For Environment, select Existing environment radio button
-- Click the folder icon next to “Python path” and navigate to: …/overthinklytics/apps/django-backend/.venv/bin/python
-- Click OK
+4. Update Modules 
+- File -> Project Structure -> Modules
+- want to have django-backend dir next to overthinkyltics dir. Likely not there so click “+” -> Import Module -> django-backend -> Create module from existing sources (next) -> if two options, unclheck one that says “java web” and `django-backend/.venv` only want Python one for `apps/django-backend`. Click Next. Please select project SDK, click “+” Add Python SDK from Disk -> Select Existing -> apps/django-backend/.venv/bin/python
+- click on Django underneath django-backend and make sure Settings.py file is set
 
-3. Set the SDK for your Project
-
-- In the left sidebar, click Project (under "Project Settings")
-- In the "SDK" dropdown, select the SDK you just created: Python 3.13 virtualenv at …overthinklytics/apps/django-backend/.venv
-- Click Apply
-
-4. Enable Django Support 
-
-- Settings -> Languages & Frameworks -> Django ... click on "enable Django support"
-  - Django project root: ...overthinklytics/apps/django-backend
-  - Settings: ...django_overthinglytics/settings.py
-- Right-click on apps/django-backend/ directory -> select Mark Directory as -> Sources Root. The folder should turn blue/highlighted.
-  - Try running a test via the gutter to confirm.
+5. Run Test in Gutter
+  - Try running a test at `apps/django-backend/django_backend/tests.py` via the gutter to confirm.
 
 ## Quick start checklist
 1) Clone and install dependencies
